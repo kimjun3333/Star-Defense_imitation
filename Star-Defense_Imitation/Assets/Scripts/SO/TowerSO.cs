@@ -8,6 +8,8 @@ public class TowerSO : BaseSO
     public float Range; //사거리
     public float AtkSpeed; //공격속도 
 
+    //근거리인지 원거리인지가 필요하네
+
     //TODO 아래내용들은 Enum으로 교체할 예정
     public string Rarity; //등급 Enum으로 변경 예정
     public string TargetType; //대상타입 Enum으로 변경 예정
