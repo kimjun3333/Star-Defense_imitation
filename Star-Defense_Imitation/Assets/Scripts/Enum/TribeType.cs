@@ -1,18 +1,14 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TribeType : MonoBehaviour
+/// <summary>
+/// 종족 분류를 위한 Enum
+/// </summary>
+public enum TribeType
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    Ent, //나무관련 특성
+    Human, //인간특성
+    Alien, //외계특성
+    Mutation, //변이 특성
 }
