@@ -12,5 +12,6 @@ public class TowerSO : BaseSO
     public string Rarity; //등급 Enum으로 변경 예정
     public string TargetType; //대상타입 Enum으로 변경 예정
     public string Tribe; //종족 => 패시브 스킬개념
+
     public string SkillID; //스킬 보유 => SO생성시 ID로 매핑할 예정
 }
