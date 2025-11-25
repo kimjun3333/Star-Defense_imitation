@@ -1,18 +1,13 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitType : MonoBehaviour
+/// <summary>
+/// 적 Type 체크 + 타워의 공격Type 체크용
+/// </summary>
+public enum UnitType
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    Ground, //지상
+    Air, //공중
+    Both, //지상이자 공중
 }
