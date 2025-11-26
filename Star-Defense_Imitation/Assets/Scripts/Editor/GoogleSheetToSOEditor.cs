@@ -59,40 +59,50 @@ public class GoogleSheetToSOEditor : EditorWindow
 
     private async Task ImportData(Type soType, Type dataType, string url)
     {
-        var method = typeof(GoogleSheetLoader).GetMethod("LoadSheetData")?.MakeGenericMethod(dataType);
-
-        if (method == null)
+        try
         {
-            Debug.LogError($"[ERROR] {soType.Name} : GoogleSheetLoader 메서드 못찾음");
-            return;
+            Debug.Log("ImportData 시작");
+
+            var method = typeof(GoogleSheetLoader).GetMethod("LoadSheetData")?.MakeGenericMethod(dataType);
+
+            if (method == null)
+            {
+                Debug.LogError($"[ERROR] {soType.Name} : GoogleSheetLoader 메서드 못찾음");
+                return;
+            }
+
+            var task = method?.Invoke(null, new object[] { url }) as Task;
+            //await task.ConfigureAwait(false);
+            await task;
+
+            var resultProp = task?.GetType().GetProperty("Result");
+            var dataList = resultProp?.GetValue(task) as System.Collections.IList;
+
+            if (dataList == null)
+            {
+                Debug.LogError($"GoogleSheetToSOEditor : {soType.Name} 시트 데이터 불러오기 실패");
+                return;
+            }
+
+            SOGenerator.ClearFieldCache();
+
+            var createMethod = typeof(SOGenerator)
+                .GetMethod("CreateOrUpdateSOs", BindingFlags.Public | BindingFlags.Static)?
+                .MakeGenericMethod(soType, dataType);
+            createMethod?.Invoke(null, new object[] { dataList });
+
+            var cleanupMethod = typeof(SOGenerator)
+                .GetMethod("CleanUpOrphanedSOs", BindingFlags.Public | BindingFlags.Static)?
+                .MakeGenericMethod(soType, dataType);
+            cleanupMethod?.Invoke(null, new object[] { dataList });
+
+            Debug.Log($"GoogleSheetToSOEditor : {soType.Name} SO {dataList.Count}개 생성/갱신 완료");
         }
-
-        var task = method?.Invoke(null, new object[] { url }) as Task;
-        //await task.ConfigureAwait(false);
-        await task;
-
-        var resultProp = task?.GetType().GetProperty("Result");
-        var dataList = resultProp?.GetValue(task) as System.Collections.IList;
-
-        if (dataList == null)
+        catch(Exception ex)
         {
-            Debug.LogError($"GoogleSheetToSOEditor : {soType.Name} 시트 데이터 불러오기 실패");
-            return;
+            Debug.LogError($"ImportData 예외발생 {soType.Name} {ex}");
         }
-
-        SOGenerator.ClearFieldCache();
-
-        var createMethod = typeof(SOGenerator)
-            .GetMethod("CreateOrUpdateSOs", BindingFlags.Public | BindingFlags.Static)?
-            .MakeGenericMethod(soType, dataType);
-        createMethod?.Invoke(null, new object[] { dataList });
-
-        var cleanupMethod = typeof(SOGenerator)
-            .GetMethod("CleanUpOrphanedSOs", BindingFlags.Public | BindingFlags.Static)?
-            .MakeGenericMethod(soType, dataType);
-        cleanupMethod?.Invoke(null, new object[] { dataList });
-
-        Debug.Log($"GoogleSheetToSOEditor : {soType.Name} SO {dataList.Count}개 생성/갱신 완료");
+        
     }
 
     private async Task ImportAllData()
