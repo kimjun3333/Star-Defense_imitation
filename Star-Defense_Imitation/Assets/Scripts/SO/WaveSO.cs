@@ -7,6 +7,11 @@ using UnityEngine;
 public class WaveSO : BaseSO
 {
     public List<SpawnInfo> Enemies;
+
+    public override void ApplyData(object sheetData)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 [Serializable]

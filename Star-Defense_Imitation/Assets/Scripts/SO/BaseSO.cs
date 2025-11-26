@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// SO의 베이스가 되는 스크립트
 /// </summary>
-public class BaseSO : ScriptableObject
+public abstract class BaseSO : ScriptableObject
 {
     public string ID;
     public string Name;
@@ -20,9 +20,9 @@ public class BaseSO : ScriptableObject
 
         ID = baseData.ID;
         Name = baseData.Name;
-        Description = baseData.Description;
+
         SpriteID = baseData.SpriteID;
-        Sprite = null; //스프라이트는 Addressable로 시작시 로드하게 => 스프라이트 ID가 유효하지 않은 상황이면 null로 빠지고 있으면 그 이후에 다시 재할당
+        Sprite = null;
     }
 
     public abstract void ApplyData(object sheetData); //런타임 갱신용 매서드
