@@ -19,8 +19,11 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemy(testEnemy);
     }
 
-    private void Start()
+    private void Update()
     {
-        Invoke(nameof(TestSpawn), 2f);
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            TestSpawn();
+        }
     }
 }
