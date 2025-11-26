@@ -5,7 +5,7 @@ using UnityEngine.Scripting.APIUpdating;
 
 public class EnemyController : MonoBehaviour
 {
-    private EnemyInstance instance;
+    [SerializeField] private EnemyInstance instance;
 
     private Transform[] waypoints;
     private int waypointIndex = 0;
