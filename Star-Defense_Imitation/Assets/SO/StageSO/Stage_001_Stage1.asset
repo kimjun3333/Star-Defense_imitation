@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728001f1c87eb954eacd31b7a12d3c12, type: 3}
+  m_Name: Stage_001_Stage1
+  m_EditorClassIdentifier: 
+  ID: Stage_001
+  Name: Stage1
+  SpriteID: 
+  Sprite: {fileID: 0}
+  MapPrefabID: Stage_001
+  WaveIDs:
+  - Wave001
+  - Wave002
+  - Wave003
+  - Wave004
+  - Wave005

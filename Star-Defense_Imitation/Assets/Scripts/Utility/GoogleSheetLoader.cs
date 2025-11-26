@@ -29,6 +29,8 @@ public class GoogleSheetLoader
 
         string rawJson = req.downloadHandler.text;
 
+        Debug.Log($"[RAW JSON - {typeof(T).Name}] {rawJson}"); //Debug
+
         string wrappedJson = "{\"list\":" + rawJson + "}";
         SheetDataList<T> wrapper = JsonUtility.FromJson<SheetDataList<T>>(wrappedJson);
 

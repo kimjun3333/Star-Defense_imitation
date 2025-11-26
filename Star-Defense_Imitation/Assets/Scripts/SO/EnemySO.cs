@@ -32,8 +32,6 @@ public class EnemySO : BaseSO
         Health = data.Health;
         Speed = data.Speed;
         Reward = data.Reward;
-        SpriteID = data.SpriteID;
-        Sprite = null;
 
         if (Enum.TryParse(data.UnitType, true, out UnitType parsedUnitType))
             UnitType = parsedUnitType;

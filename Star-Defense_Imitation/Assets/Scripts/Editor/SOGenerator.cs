@@ -154,7 +154,7 @@ public static class SOGenerator
         }
         else
         {
-            Debug.Log($"<color=gray>[SOGenerator]</color> {typeof(TSO).Name} 불필요한 SO 없음 (깨끗함)");
+            Debug.Log($"<color=gray>[SOGenerator]</color> {typeof(TSO).Name} 불필요한 SO 없음");
         }
     }
 
