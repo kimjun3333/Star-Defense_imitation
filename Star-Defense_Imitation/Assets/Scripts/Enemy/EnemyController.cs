@@ -7,10 +7,10 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private EnemyInstance instance;
 
-    private Transform[] waypoints;
+    private List<Transform> waypoints;
     private int waypointIndex = 0;
 
-    public void Init(EnemySO so, Transform[] path)
+    public void Init(EnemySO so, List<Transform> path)
     {
         instance = new EnemyInstance(so);
         waypoints = path;
@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
 
     private void Move()
     {
-        if (waypointIndex >= waypoints.Length) return;
+        if (waypointIndex >= waypoints.Count) return;
 
         transform.position = Vector3.MoveTowards(
             transform.position,
@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
         if(Vector3.Distance(transform.position, waypoints[waypointIndex].position) < 0.1f)
         {
             waypointIndex++;
-            if(waypointIndex >= waypoints.Length)
+            if(waypointIndex >= waypoints.Count)
             {
                 Debug.Log("골인");
             }

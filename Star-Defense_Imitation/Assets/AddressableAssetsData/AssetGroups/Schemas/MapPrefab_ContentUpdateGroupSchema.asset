@@ -9,17 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 728001f1c87eb954eacd31b7a12d3c12, type: 3}
-  m_Name: Stage_005_Stage5
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: MapPrefab_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  ID: Stage_005
-  Name: Stage5
-  SpriteID: 
-  Sprite: {fileID: 0}
-  MapPrefabID: Stage_005
-  WaveIDs:
-  - Wave_001
-  - Wave_002
-  - Wave_003
-  - Wave_004
-  - Wave_005
+  m_Group: {fileID: 11400000, guid: eafa0ad646006de4dabb2f8721d3b9d9, type: 2}
+  m_StaticContent: 0

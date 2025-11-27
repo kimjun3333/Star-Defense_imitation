@@ -39,27 +39,6 @@ public class DataManager : Singleton<DataManager>, IInitializable
         Debug.Log($"DataManager : [{label}] {dataByLabel[label].Count}개 데이터 추가 완료");
     }
 
-    /// <summary>
-    /// 특정 라벨의 리스트를 가져오는 함수
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="label"></param>
-    /// <returns></returns>
-
-    public List<T> GetDataByLabel<T>(string label) where T : Object
-    {
-        if (!dataByLabel.TryGetValue(label, out var list))
-            return new List<T>();
-
-        List<T> result = new();
-        foreach (var item in list)
-        {
-            if (item is T tItem)
-                result.Add(tItem);
-        }
-        return result;
-    }
-
     public List<T> GetAllDataOfType<T>() where T : Object
     {
         List<T> result = new();
@@ -73,5 +52,37 @@ public class DataManager : Singleton<DataManager>, IInitializable
         }
 
         return result;
+    }
+    
+    /// <summary>
+    /// BaseSO를 상속받는 Data를 ID로 가져오는 함수
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public T GetData<T>(string id) where T : BaseSO
+    {
+        foreach(var kvp in dataByLabel)
+        {
+            foreach(var item in kvp.Value)
+            {
+                if (item is T so && so.ID == id)
+                    return so;
+            }
+        }
+
+        return null;
+    }
+
+
+    /// <summary>
+    /// GameObject id로 가져오는 함수
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public GameObject GetPrefab(string id)
+    {
+        var list = GetAllDataOfType<GameObject>();
+        return list.Find(x => x.name == id);    
     }
 }

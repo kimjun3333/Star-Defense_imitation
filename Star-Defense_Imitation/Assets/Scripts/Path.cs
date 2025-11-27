@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Path : MonoBehaviour
 {
-    public Transform[] Waypoints;
+    public List<Transform> Waypoints = new();
 
     private void Start()
     {
-        Waypoints = new Transform[transform.childCount];
+        Debug.Log("Path 실행");
+        Waypoints.Clear();
 
         for(int i = 0; i < transform.childCount; i++)
         {
-            Waypoints[i] = transform.GetChild(i);
+            Waypoints.Add(transform.GetChild(i));
         }
     }
 }

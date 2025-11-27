@@ -18,8 +18,8 @@ MonoBehaviour:
   Sprite: {fileID: 0}
   MapPrefabID: Stage_003
   WaveIDs:
-  - Wave001
-  - Wave002
-  - Wave003
-  - Wave004
-  - Wave005
+  - Wave_001
+  - Wave_002
+  - Wave_003
+  - Wave_004
+  - Wave_005
