@@ -17,5 +17,5 @@ MonoBehaviour:
   SpriteID: 
   Sprite: {fileID: 0}
   Enemies:
-  - EnemyID: E_001
-    Count: 7
+  - EnemyID: E_005
+    Count: 3

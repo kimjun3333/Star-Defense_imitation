@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: E_001
   Name: "\uC18C\uD615\uC801"
-  SpriteID: 
+  SpriteID: Enemy_001
   Sprite: {fileID: 0}
   Health: 10
   Speed: 1

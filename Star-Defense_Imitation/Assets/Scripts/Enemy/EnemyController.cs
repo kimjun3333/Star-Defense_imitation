@@ -6,6 +6,7 @@ using UnityEngine.Scripting.APIUpdating;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private EnemyInstance instance;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private List<Transform> waypoints;
     private int waypointIndex = 0;
@@ -13,6 +14,8 @@ public class EnemyController : MonoBehaviour
     public void Init(EnemySO so, List<Transform> path)
     {
         instance = new EnemyInstance(so);
+        spriteRenderer.sprite = so.Sprite;
+
         waypoints = path;
         waypointIndex = 0;
         transform.position = waypoints[0].position;
