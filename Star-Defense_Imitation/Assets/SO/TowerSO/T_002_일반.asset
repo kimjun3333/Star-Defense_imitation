@@ -16,7 +16,7 @@ MonoBehaviour:
   Name: "\uC77C\uBC18"
   SpriteID: Tower_002
   Sprite: {fileID: 0}
-  Dmg: 20
+  Dmg: 2
   Range: 2
   AtkSpeed: 2
   AttackType: 1
