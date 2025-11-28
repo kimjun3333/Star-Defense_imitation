@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 349a0ee93b202ea488e7b7359ec7a7b4
   m_SerializeEntries:
+  - m_GUID: 0278e33a2c3a76848b2585ef34754938
+    m_Address: Assets/Externals/Addin's Weapon Icons- RPG Icon Pack/Individual Sprites/64x64/Tower_003.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c1f95497069c2d4f8eb20c6553cbc01
     m_Address: Assets/Sprites/PNG/Enemy_002.png
     m_ReadOnly: 0
@@ -29,14 +35,38 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 629fa64cce08a9c44a81cc000f48c167
+    m_Address: Assets/Externals/Addin's Weapon Icons- RPG Icon Pack/Individual Sprites/64x64/Tower_001.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 68f6070cccedf0645a1c69d2405df3c5
     m_Address: Assets/Sprites/PNG/Enemy_005.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79e4a08516152ef4fb869c23c2f2e393
+    m_Address: Assets/Externals/Addin's Weapon Icons- RPG Icon Pack/Individual Sprites/64x64/Tower_004.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a64ccb5f9f38a97419ada401218119b5
+    m_Address: Assets/Externals/Addin's Weapon Icons- RPG Icon Pack/Individual Sprites/64x64/Tower_002.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bc39d439ee5dc2c44a2c0b4bd881b65c
     m_Address: Assets/Sprites/PNG/Enemy_001.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c95220e87c6408849800a0d13eca9cff
+    m_Address: Assets/Externals/Addin's Weapon Icons- RPG Icon Pack/Individual Sprites/64x64/Tower_006.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
@@ -49,6 +79,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e9b6e34148732404ab5864aea4e7f24d
     m_Address: Assets/Sprites/PNG/Enemy_004.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fad0ddd6e6bbc62418410a003f9ffdf3
+    m_Address: Assets/Externals/Addin's Weapon Icons- RPG Icon Pack/Individual Sprites/64x64/Tower_005.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites

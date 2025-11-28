@@ -21,6 +21,8 @@ public class AddressableLoader : Singleton<AddressableLoader>, IInitializable
         { "UI", new[] { typeof(GameObject) } },
         { "MapPrefab", new[] { typeof(GameObject) } },
         { "Projectile", new[] { typeof(GameObject) } },
+        { "TowerPrefab", new[] { typeof(GameObject) } },
+        { "EnemyPrefab", new[] { typeof(GameObject) } },
     };
 
     public async Task Init()

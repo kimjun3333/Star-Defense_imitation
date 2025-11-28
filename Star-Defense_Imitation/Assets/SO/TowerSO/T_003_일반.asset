@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: T_003
   Name: "\uC77C\uBC18"
-  SpriteID: 
+  SpriteID: Tower_003
   Sprite: {fileID: 0}
   Dmg: 30
   Range: 3
@@ -24,4 +24,4 @@ MonoBehaviour:
   TargetType: 2
   Tribe: 2
   SkillID: 
-  ProjectileID: Projectile_003
+  ProjectileID: Projectile_001

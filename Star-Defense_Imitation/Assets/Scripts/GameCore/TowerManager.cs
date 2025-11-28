@@ -12,9 +12,20 @@ public class TowerManager : Singleton<TowerManager>, IInitializable
     private GameObject towerPrefab; // 시작할때 등록하고
 
     [SerializeField] private List<TowerController> towers = new(); //설치한 타워목록
-    public Task Init()
+    public async Task Init()
     {
-        throw new System.NotImplementedException();
+        towerPrefab = DataManager.Instance.GetPrefab("TowerPrefab");
+
+        if(towerPrefab == null)
+        {
+            Debug.LogError("TowerManager : TowerPrefab을 찾을수 없음");     
+        }
+        else
+        {
+            Debug.Log("TowerManager : TowerPrefab 로드 완료");
+        }
+
+        await Task.Yield();
     }
 
     public TowerController BuildTower(TowerSO so, Vector3 pos)

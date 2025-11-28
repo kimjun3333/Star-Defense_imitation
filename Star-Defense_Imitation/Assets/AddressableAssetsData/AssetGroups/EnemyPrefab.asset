@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: MapPrefab
+  m_Name: EnemyPrefab
   m_EditorClassIdentifier: 
-  m_GroupName: MapPrefab
+  m_GroupName: EnemyPrefab
   m_Data:
     m_SerializedData: []
-  m_GUID: d1c7c80f5cf89724ba2e9ba7408718be
+  m_GUID: 089b0af63ab1df041b35102ac4e9d7ca
   m_SerializeEntries:
-  - m_GUID: d2cf4fdacdff1c34f981132bf82ac635
-    m_Address: Assets/Prefab/StagePrefab/Stage_001.prefab
+  - m_GUID: 2864a526011c2d841ad249380a26657f
+    m_Address: Assets/Prefab/Enemy/EnemyPrefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
-    - MapPrefab
+    - EnemyPrefab
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 67d1a9e6c9b132e489b2d215bf94310e, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 3b45a5ce85347e64ab8db7d2750da8ce, type: 2}
-    - {fileID: 11400000, guid: 38c62ae11572b3d4cbafe6b8dac5d54e, type: 2}
+    - {fileID: 11400000, guid: 05f6cc41db4523e48b98d6084d3fd205, type: 2}
+    - {fileID: 11400000, guid: 872bc183b74f9f94eb32c8b65bb29ec9, type: 2}

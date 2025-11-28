@@ -52,7 +52,10 @@ public class TowerController : MonoBehaviour
 
     private void Attack(EnemyController enemy)
     {
-        if(instance.projectilePrefab == null)
+        Debug.Log($"Attack() enemy null? {(enemy == null)}");
+        Debug.Log($"{instance.Definition.Name}의 공격시도!");
+
+        if (instance.projectilePrefab == null)
         {
             Debug.LogError($"ProjectilePrefab이 없습니다. ID {instance.Definition.ProjectileID}");
             return;
@@ -60,7 +63,7 @@ public class TowerController : MonoBehaviour
 
         GameObject obj = Instantiate(instance.projectilePrefab, transform.position, Quaternion.identity);
 
-        ProjectileController projectile = obj.AddComponent<ProjectileController>();
+        ProjectileController projectile = obj.GetComponent<ProjectileController>();
         projectile.Init(enemy, instance.Definition.Dmg, 8f);
     }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 7c945d8231455e348a50623c748e91cb
   m_currentHash:
     serializedVersion: 2
-    Hash: 90f5e203c8592be64eca70cbbbb8db58
+    Hash: 0a607a2cc34261d5a9e39fcbe7ebd786
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -44,11 +44,13 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+  - {fileID: 11400000, guid: bc8101c21818fc74f82bf32834bc51a1, type: 2}
   - {fileID: 11400000, guid: d8ecd2db52911364d909bdb755784f3d, type: 2}
   - {fileID: 11400000, guid: 17a1689c966706e4da4834afdb00c480, type: 2}
   - {fileID: 11400000, guid: 0d19971678ff6c747b6cd233a06a7c27, type: 2}
   - {fileID: 11400000, guid: 813ac5fa65b36694b9a0d2d24a9c4380, type: 2}
   - {fileID: 11400000, guid: 48d177bdaf9fe6e4caaad66f63922245, type: 2}
+  - {fileID: 11400000, guid: 1459446f4765c944d97c19dfeffc7d34, type: 2}
   - {fileID: 11400000, guid: eafa0ad646006de4dabb2f8721d3b9d9, type: 2}
   - {fileID: 11400000, guid: d98933ec26b5a0d439743d786ef428af, type: 2}
   - {fileID: 11400000, guid: fb6b0a8dd9e156d49b91448cdc73e875, type: 2}
@@ -102,6 +104,8 @@ MonoBehaviour:
     - UI
     - MapPrefab
     - Projectile
+    - TowerPrefab
+    - EnemyPrefab
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: b2aeb0c2a402ff24cabf76a27fba1383, type: 2}

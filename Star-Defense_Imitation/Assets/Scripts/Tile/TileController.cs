@@ -61,5 +61,39 @@ public class TileController : MonoBehaviour
         {
             //타워건설 가능
         }
+
+        TryPlaceRandomTower();
+    }
+
+    private void TryPlaceRandomTower()
+    {
+        if(!CanPlaceTower)
+        {
+            Debug.Log("설치 불가능한 타일");
+            return;
+        }
+
+        TowerSO so = GetRandomTowerSO();
+        if(so == null)
+        {
+            Debug.LogError("타워 뽑기 실패");
+            return;
+        }
+
+        TowerController tower = TowerManager.Instance.BuildTower(so, transform.position);
+
+        hasTower = true;
+
+        Debug.Log($"타워 설치 완료 : {so.ID}");
+    }
+
+    private TowerSO GetRandomTowerSO()
+    {
+        List<TowerSO> towers = DataManager.Instance.GetAllDataOfType<TowerSO>();
+        if (towers == null || towers.Count == 0)
+            return null;
+
+        int idx = Random.Range(0, towers.Count);
+        return towers[idx];
     }
 }
