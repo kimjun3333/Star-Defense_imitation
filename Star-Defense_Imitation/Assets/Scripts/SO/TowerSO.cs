@@ -16,6 +16,7 @@ public class TowerSheetData : BaseSheetData
     public string Tribe;
 
     public string SkillID;
+    public string ProjectileID; //발사체 ID
 
 }
 public class TowerSO : BaseSO
@@ -29,7 +30,8 @@ public class TowerSO : BaseSO
     public UnitType TargetType; //대공 , 지공 , 지대공
     public TribeType Tribe; //종족 => 패시브 스킬개념
 
-    public string SkillID; //스킬 보유 => SO생성시 ID로 매핑할 예정
+    public string SkillID; //스킬 보유 => ID로 매핑할 예정
+    public string ProjectileID; //발사체 ID로 매핑할 예정
 
     public override void ApplyData(object sheetData)
     {
@@ -41,6 +43,7 @@ public class TowerSO : BaseSO
         Range = data.Range;
         AtkSpeed = data.AtkSpeed;
         SkillID = data.SkillID;
+        ProjectileID = data.ProjectileID;
 
         if (Enum.TryParse(data.AttackType, true, out AttackType parsedAttackType))
             AttackType = parsedAttackType;
