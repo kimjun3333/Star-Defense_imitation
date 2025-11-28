@@ -6,11 +6,15 @@ public class TowerInstance
 {
     public TowerSO Definition;
 
+    public GameObject projectilePrefab;
+
     public float CurrentCooldown;
 
     public TowerInstance(TowerSO so)
     {
         Definition = so;
         CurrentCooldown = 0f;
+
+        projectilePrefab = DataManager.Instance.GetPrefab(so.ProjectileID);
     }
 }

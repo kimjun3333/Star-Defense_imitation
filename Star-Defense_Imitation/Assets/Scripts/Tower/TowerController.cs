@@ -52,9 +52,15 @@ public class TowerController : MonoBehaviour
 
     private void Attack(EnemyController enemy)
     {
-        float dmg = instance.Definition.Dmg;
-        enemy.TakeDamage(dmg);
+        if(instance.projectilePrefab == null)
+        {
+            Debug.LogError($"ProjectilePrefab이 없습니다. ID {instance.Definition.ProjectileID}");
+            return;
+        }
 
-        Debug.Log($"{instance.Definition.name} 타워가 {enemy.name} 공격! {dmg} 데미지");
+        GameObject obj = Instantiate(instance.projectilePrefab, transform.position, Quaternion.identity);
+
+        ProjectileController projectile = obj.AddComponent<ProjectileController>();
+        projectile.Init(enemy, instance.Definition.Dmg, 8f);
     }
 }

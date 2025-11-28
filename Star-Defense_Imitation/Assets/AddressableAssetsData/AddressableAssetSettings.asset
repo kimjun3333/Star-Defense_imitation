@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 7c945d8231455e348a50623c748e91cb
   m_currentHash:
     serializedVersion: 2
-    Hash: 639be30e4df0acd08f0440471e44d6e5
+    Hash: 90f5e203c8592be64eca70cbbbb8db58
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -51,6 +51,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 48d177bdaf9fe6e4caaad66f63922245, type: 2}
   - {fileID: 11400000, guid: eafa0ad646006de4dabb2f8721d3b9d9, type: 2}
   - {fileID: 11400000, guid: d98933ec26b5a0d439743d786ef428af, type: 2}
+  - {fileID: 11400000, guid: fb6b0a8dd9e156d49b91448cdc73e875, type: 2}
   - {fileID: 11400000, guid: 80c10e8c22acab94b91ba62f5dca74bb, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
@@ -100,6 +101,7 @@ MonoBehaviour:
     - Sprites
     - UI
     - MapPrefab
+    - Projectile
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: b2aeb0c2a402ff24cabf76a27fba1383, type: 2}
