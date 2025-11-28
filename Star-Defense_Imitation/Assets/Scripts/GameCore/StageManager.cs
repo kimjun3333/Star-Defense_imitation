@@ -91,9 +91,11 @@ public class StageManager : Singleton<StageManager>
             for(int i = 0; i < spawnInfo.Count; i++)
             {
                 spawner.SpawnEnemy(enemy, currentPath.Waypoints);
-                yield return new WaitForSeconds(0.5f); //Wave Interval 넣기
+                yield return new WaitForSeconds(0.5f); //Wave Interval 넣기 적 나오는 텀
             }
         }
+
+        yield return new WaitUntil(() => EnemyManager.Instance.IsAllEnemyDead());
 
         isWaveRunning = false;
     }

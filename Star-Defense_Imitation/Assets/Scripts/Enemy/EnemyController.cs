@@ -19,6 +19,8 @@ public class EnemyController : MonoBehaviour
         waypoints = path;
         waypointIndex = 0;
         transform.position = waypoints[0].position;
+
+        EnemyManager.Instance.Register(this);
     }
 
     private void Update()
@@ -46,4 +48,9 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (EnemyManager.Instance != null)
+            EnemyManager.Instance.UnRegister(this);
+    }
 }
