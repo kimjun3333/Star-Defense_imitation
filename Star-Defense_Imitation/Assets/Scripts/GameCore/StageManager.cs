@@ -8,22 +8,31 @@ public class StageManager : Singleton<StageManager>
     public Transform mapParent;
 
     private GameObject currentMap;
-
     private Path currentPath;
 
-    public void StartStage(StageSO stage)
-    {
-        LoadMap(stage.MapPrefabID);
-        StartCoroutine(RunStage(stage));
-    }
+    private StageSO currentStage;
+    private int currentWaveIndex = 0;
+    private bool isWaveRunning = false;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Keypad0))
         {
-            var stage = DataManager.Instance.GetData<StageSO>("Stage_001");
-            StartStage(stage);
+            LoadStage("Stage_001");
         }
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            StartNextWave();
+        }
+    }
+
+    public void LoadStage(string stageID)
+    {
+        currentStage = DataManager.Instance.GetData<StageSO>(stageID);
+        currentWaveIndex = 0;
+        isWaveRunning = false;
+
+        LoadMap(currentStage.MapPrefabID);
     }
 
     private void LoadMap(string prefabID)
@@ -39,24 +48,36 @@ public class StageManager : Singleton<StageManager>
         currentPath = currentMap.GetComponentInChildren<Path>();
     }
 
-    private IEnumerator RunStage(StageSO stage)
+    public void StartNextWave()
     {
-        foreach(string waveID in stage.WaveIDs)
+        if(isWaveRunning)
         {
-            WaveSO wave = DataManager.Instance.GetData<WaveSO>(waveID);
-
-            if (wave == null)
-            {
-                Debug.LogError($"WaveSO {waveID}를 찾지못합니다.");
-                continue;
-            }
-
-            yield return StartCoroutine(RunWave(wave));
+            Debug.Log("웨이브 진행중");
+            return;
         }
-    }
 
+        if(currentWaveIndex >= currentStage.WaveIDs.Count)
+        {
+            Debug.Log("모든 웨이브 종료");
+            return;
+        }
+
+        string waveID = currentStage.WaveIDs[currentWaveIndex];
+        WaveSO wave = DataManager.Instance.GetData<WaveSO>(waveID);
+
+        if(wave == null)
+        {
+            Debug.LogError($"WaveSO {waveID}를 찾을수 없습니다.");
+            return;
+        }
+
+        StartCoroutine(RunWave(wave));
+        currentWaveIndex++;
+    }
     private IEnumerator RunWave(WaveSO wave)
     {
+        isWaveRunning = true;
+
         foreach(var spawnInfo in wave.Enemies)
         {
             EnemySO enemy = DataManager.Instance.GetData<EnemySO>(spawnInfo.EnemyID);
@@ -72,7 +93,8 @@ public class StageManager : Singleton<StageManager>
                 spawner.SpawnEnemy(enemy, currentPath.Waypoints);
                 yield return new WaitForSeconds(0.5f); //Wave Interval 넣기
             }
-
         }
+
+        isWaveRunning = false;
     }
 }

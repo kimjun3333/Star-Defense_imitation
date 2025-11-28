@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 [Serializable]
 public class StageSheetData : BaseSheetData
@@ -10,7 +11,7 @@ public class StageSheetData : BaseSheetData
 public class StageSO : BaseSO
 {
     public string MapPrefabID; //스테이지 맵
-    public string[] WaveIDs;
+    public List<string> WaveIDs;
 
     public override void ApplyData(object sheetData)
     {
@@ -20,6 +21,7 @@ public class StageSO : BaseSO
 
         MapPrefabID = data.MapPrefabID;
 
-        WaveIDs = data.WaveIDs.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+        WaveIDs = new List<string>(
+            data.WaveIDs.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries));
     }
 }
