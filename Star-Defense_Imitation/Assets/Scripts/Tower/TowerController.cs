@@ -37,20 +37,17 @@ public class TowerController : MonoBehaviour
         List<EnemyController> enemies = EnemyManager.Instance.GetEnemies();
 
         float range = instance.Definition.Range;
-        EnemyController targetEnemy = null;
-        float nearDistance = float.MaxValue;
 
         foreach(var enemy in enemies)
         {
             float dist = Vector2.Distance(transform.position, enemy.transform.position);
-            if(dist <= range && dist < nearDistance)
+            if (dist <= range)
             {
-                nearDistance = dist;
-                targetEnemy = enemy;
+                return enemy;
             }
         }
 
-        return targetEnemy;
+        return null;
     }
 
     private void Attack(EnemyController enemy)
