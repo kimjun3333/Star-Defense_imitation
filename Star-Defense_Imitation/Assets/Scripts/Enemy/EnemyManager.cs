@@ -13,7 +13,7 @@ public class EnemyManager : Singleton<EnemyManager>
         enemies.Add(enemy);
     }
 
-    public void UnRegister(EnemyController enemy) //적 해제
+    public void Unregister(EnemyController enemy) //적 해제
     {
         enemies.Remove(enemy);
     }

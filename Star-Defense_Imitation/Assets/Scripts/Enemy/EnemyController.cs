@@ -48,9 +48,25 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float dmg)
+    {
+        instance.CurrentHealth -= dmg;
+
+        if(instance.CurrentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        EnemyManager.Instance.Unregister(this);
+        Destroy(gameObject);
+    }
+
     private void OnDestroy()
     {
         if (EnemyManager.Instance != null)
-            EnemyManager.Instance.UnRegister(this);
+            EnemyManager.Instance.Unregister(this);
     }
 }
