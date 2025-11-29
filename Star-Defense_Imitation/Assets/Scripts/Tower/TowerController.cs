@@ -8,12 +8,18 @@ public class TowerController : MonoBehaviour, IPoolable
 
     [SerializeField] private SpriteRenderer spriteRenderer;
 
+
     public void Init(TowerSO so)
     {
         instance = new TowerInstance(so);
         spriteRenderer.sprite = so.Sprite;
     }
 
+    private void Start()
+    {
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+    }
 
     public void OnSpawned()
     {
@@ -72,6 +78,6 @@ public class TowerController : MonoBehaviour, IPoolable
             );
 
         ProjectileController projectile = obj.GetComponent<ProjectileController>();
-        projectile.Init(enemy, instance.Definition.Dmg, 8f, instance.ProjectileSprite);
+        projectile.Init(enemy, instance.Definition.Dmg, 8f, instance.Definition.ProjectileSprite);
     }
 }

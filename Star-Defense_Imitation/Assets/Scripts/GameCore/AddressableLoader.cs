@@ -106,13 +106,24 @@ public class AddressableLoader : Singleton<AddressableLoader>, IInitializable
                 if (string.IsNullOrEmpty(so.SpriteID)) continue;
 
                 var found = sprites.FirstOrDefault(s => s.name == so.SpriteID);
+
                 if (found != null)
-                {
                     so.Sprite = found;
-                }
+
                 else
+                    Debug.LogWarning($"AddressableLoader : {so.Name} : SpriteID '{so.SpriteID}' 스프라이트 없음");
+
+                if(so is TowerSO towerSO)
                 {
-                    Debug.LogWarning($"AddressableLoader : {so.name} : SpriteID '{so.SpriteID}' 스프라이트 없음");
+                    if(!string.IsNullOrEmpty(towerSO.ProjectileSpriteID))
+                    {
+                        var projSprite = sprites.FirstOrDefault(s => s.name == towerSO.ProjectileSpriteID);
+
+                        if (projSprite != null)
+                            towerSO.ProjectileSprite = projSprite;
+                        else
+                            Debug.LogWarning($"AddressableLoader : {so.Name} : SpriteID '{towerSO.ProjectileSpriteID}' 스프라이트 없음");
+                    }
                 }
             }
         }
