@@ -15,6 +15,8 @@ public class GameHudUI : UIBase
     public override void OnInit()
     {
         base.OnInit();
+
+        EventManager.Instance.Subscribe(EventType.ResourceChanged, OnResourceChanged);
     }
 
     public override void OnOpen()
@@ -25,5 +27,16 @@ public class GameHudUI : UIBase
     public override void OnClose()
     {
         base.OnClose();
+    }
+
+    private void OnResourceChanged(object payload)
+    {
+        var data = (ResourceChangedPayload)payload;
+
+        if(data.type == ResourceType.Gold)
+            goldText.text = data.value.ToString();
+        if(data.type == ResourceType.Mineral)
+            mineralText.text = data.value.ToString();
+
     }
 }
