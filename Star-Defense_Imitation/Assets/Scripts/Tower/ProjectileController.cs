@@ -8,13 +8,22 @@ public class ProjectileController : MonoBehaviour, IPoolable
     private float dmg;
     private float speed;
 
-    public void Init(EnemyController target, float dmg, float speed)
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+
+    public void Init(EnemyController target, float dmg, float speed, Sprite sprite)
     {
         this.target = target;
         this.dmg = dmg;
         this.speed = speed;
-    }
 
+        spriteRenderer.sprite = sprite;
+    }
+    private void Start()
+    {
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+    }
 
     public void OnSpawned()
     {

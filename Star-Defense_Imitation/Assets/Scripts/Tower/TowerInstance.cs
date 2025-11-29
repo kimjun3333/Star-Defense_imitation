@@ -5,8 +5,7 @@ using UnityEngine;
 public class TowerInstance
 {
     public TowerSO Definition;
-
-    public GameObject projectilePrefab; //이 부분도 없앨 예정.
+    public Sprite ProjectileSprite;
 
     public float CurrentCooldown;
 
@@ -15,6 +14,6 @@ public class TowerInstance
         Definition = so;
         CurrentCooldown = 0f;
 
-        projectilePrefab = DataManager.Instance.GetPrefab(so.ProjectileID);
+        ProjectileSprite = DataManager.Instance.GetSpriteByID(Definition.ProjectileID);
     }
 }

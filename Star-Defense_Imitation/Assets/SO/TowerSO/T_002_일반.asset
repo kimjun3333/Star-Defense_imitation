@@ -24,4 +24,5 @@ MonoBehaviour:
   TargetType: 1
   Tribe: 1
   SkillID: 
-  ProjectileID: Projectile_001
+  ProjectileID: Tower_005
+  ProjectileSprite: {fileID: 0}

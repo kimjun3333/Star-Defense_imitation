@@ -22,6 +22,11 @@ public class EnemyController : MonoBehaviour, IPoolable
 
         EnemyManager.Instance.Register(this);
     }
+    private void Start()
+    {
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+    }
 
     public void OnSpawned()
     {

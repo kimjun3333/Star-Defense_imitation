@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerController : MonoBehaviour, IPoolable
 {
-   private TowerInstance instance;
+    [SerializeField] private TowerInstance instance;
 
     [SerializeField] private SpriteRenderer spriteRenderer;
 
@@ -31,19 +31,19 @@ public class TowerController : MonoBehaviour, IPoolable
     {
         if (instance == null) return;
 
-        if(instance.CurrentCooldown > 0)
+        if (instance.CurrentCooldown > 0)
             instance.CurrentCooldown -= Time.deltaTime;
 
         EnemyController target = FindTarget();
         if (target == null) return;
 
-        if(instance.CurrentCooldown <= 0)
+        if (instance.CurrentCooldown <= 0)
         {
             Attack(target);
             instance.CurrentCooldown = 1f / instance.Definition.AtkSpeed;
         }
     }
-        
+
 
     private EnemyController FindTarget()
     {
@@ -51,7 +51,7 @@ public class TowerController : MonoBehaviour, IPoolable
 
         float range = instance.Definition.Range;
 
-        foreach(var enemy in enemies)
+        foreach (var enemy in enemies)
         {
             float dist = Vector2.Distance(transform.position, enemy.transform.position);
             if (dist <= range)
@@ -72,6 +72,6 @@ public class TowerController : MonoBehaviour, IPoolable
             );
 
         ProjectileController projectile = obj.GetComponent<ProjectileController>();
-        projectile.Init(enemy, instance.Definition.Dmg, 8f);
+        projectile.Init(enemy, instance.Definition.Dmg, 8f, instance.ProjectileSprite);
     }
 }

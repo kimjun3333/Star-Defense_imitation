@@ -100,4 +100,22 @@ public class DataManager : Singleton<DataManager>, IInitializable
 
         return result;
     }
+
+    public Sprite GetSpriteByID(string id)
+    {
+        if(!dataByLabel.ContainsKey("Sprites"))
+        {
+            Debug.LogError("Sprite 라벨 로드 안됨");
+            return null;
+        }
+
+        foreach(var obj in dataByLabel["Sprites"])
+        {
+            if (obj is Sprite sprite && sprite.name == id)
+                return sprite;
+        }
+
+        Debug.LogError($"Sprite ID '{id}' 찾을 수 없음");
+        return null;
+    }
 }
