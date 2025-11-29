@@ -74,7 +74,6 @@ public class DataManager : Singleton<DataManager>, IInitializable
         return null;
     }
 
-
     /// <summary>
     /// GameObject id로 가져오는 함수
     /// </summary>
@@ -84,5 +83,21 @@ public class DataManager : Singleton<DataManager>, IInitializable
     {
         var list = GetAllDataOfType<GameObject>();
         return list.Find(x => x.name == id);    
+    }
+
+    public List<T> GetAllDataOfTypeByLabel<T>(string label) where T : Object
+    {
+        List<T> result = new();
+
+        if (!dataByLabel.ContainsKey(label))
+            return result;
+
+        foreach(var item in dataByLabel[label])
+        {
+            if(item is T tItem)
+                result.Add(tItem);
+        }
+
+        return result;
     }
 }

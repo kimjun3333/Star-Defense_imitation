@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 7c945d8231455e348a50623c748e91cb
   m_currentHash:
     serializedVersion: 2
-    Hash: 0a607a2cc34261d5a9e39fcbe7ebd786
+    Hash: 8b6808e552b5cd205f5829ecbadce0a0
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
     - Sprites
     - UI
     - MapPrefab
-    - Projectile
+    - ProjectilePrefab
     - TowerPrefab
     - EnemyPrefab
   m_SchemaTemplates: []

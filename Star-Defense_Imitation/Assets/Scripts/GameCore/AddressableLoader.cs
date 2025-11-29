@@ -20,7 +20,7 @@ public class AddressableLoader : Singleton<AddressableLoader>, IInitializable
         { "Sprites", new[] { typeof(Sprite) } },
         { "UI", new[] { typeof(GameObject) } },
         { "MapPrefab", new[] { typeof(GameObject) } },
-        { "Projectile", new[] { typeof(GameObject) } },
+        { "ProjectilePrefab", new[] { typeof(GameObject) } },
         { "TowerPrefab", new[] { typeof(GameObject) } },
         { "EnemyPrefab", new[] { typeof(GameObject) } },
     };

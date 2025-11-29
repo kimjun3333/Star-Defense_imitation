@@ -11,14 +11,17 @@ public class PoolingManager : Singleton<PoolingManager>, IInitializable
 
     public async Task Init()
     {
-        GameObject enemyPrefab = DataManager.Instance.GetPrefab("EnemyPrefab");
-        Preload("Enemy", enemyPrefab, 30);
+        var enemyPrefabs = DataManager.Instance.GetAllDataOfTypeByLabel<GameObject>("EnemyPrefab");
+        if (enemyPrefabs.Count > 0)
+            Preload("Enemy", enemyPrefabs[0], 30);
 
-        GameObject towerPrefab = DataManager.Instance.GetPrefab("TowerPrefab");
-        Preload("Tower", towerPrefab, 30);
+        var towerPrefabs = DataManager.Instance.GetAllDataOfTypeByLabel<GameObject>("TowerPrefab");
+        if (towerPrefabs.Count > 0)
+            Preload("Tower", towerPrefabs[0], 30);
 
-        GameObject projectilePrefab = DataManager.Instance.GetPrefab("ProjectilePrefab");
-        Preload("Projectile", projectilePrefab, 100);
+        var projectilePrefabs = DataManager.Instance.GetAllDataOfTypeByLabel<GameObject>("ProjectilePrefab");
+        if (projectilePrefabs.Count > 0)
+            Preload("Projectile", projectilePrefabs[0], 30);
 
         await Task.Yield();
     }
