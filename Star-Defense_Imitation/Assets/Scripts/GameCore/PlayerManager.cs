@@ -12,6 +12,12 @@ public class PlayerManager : Singleton<PlayerManager>, IInitializable
         resources[ResourceType.Gold] = 100;
         resources[ResourceType.Mineral] = 0;
 
+        EventManager.Instance.Trigger(EventType.ResourceChanged,
+        new ResourceChangedPayload(ResourceType.Gold, resources[ResourceType.Gold]));
+
+        EventManager.Instance.Trigger(EventType.ResourceChanged,
+            new ResourceChangedPayload(ResourceType.Mineral, resources[ResourceType.Mineral]));
+
         await Task.Yield();
     }
 

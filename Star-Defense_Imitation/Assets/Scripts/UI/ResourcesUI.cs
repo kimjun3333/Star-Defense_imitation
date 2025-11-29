@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GameHudUI : UIBase
+public class ResourcesUI : UIBase
 {
     [Header("Resources Text")]
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private TextMeshProUGUI mineralText;
 
-    [Header("Wave Text")]
-    [SerializeField] private TextMeshProUGUI waveText;
+    [Header("Worker Text")]
+    [SerializeField] private TextMeshProUGUI workerText;
 
     public override void OnInit()
     {
@@ -37,6 +37,5 @@ public class GameHudUI : UIBase
             goldText.text = data.value.ToString();
         if(data.type == ResourceType.Mineral)
             mineralText.text = data.value.ToString();
-
     }
 }
