@@ -18,5 +18,6 @@ public class InitializeManager : Singleton<InitializeManager>
         AddressableLoader.Instance.LinkAllSprites(); //스프라이트 ID 비교후 매핑
         await DataManager.Instance.Init(); //어드레서블 데이터 DataManager에 넘겨주기
         await TowerManager.Instance.Init(); //타워 Prefab 연결
+        await PoolingManager.Instance.Init(); //풀링 생성 
     }
 }
