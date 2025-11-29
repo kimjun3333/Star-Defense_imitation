@@ -16,6 +16,7 @@ public class ResourcesUI : UIBase
     {
         base.OnInit();
 
+        Debug.Log("ResourcesUI OnInit이 호출되었습니다.");
         EventManager.Instance.Subscribe(EventType.ResourceChanged, OnResourceChanged);
     }
 

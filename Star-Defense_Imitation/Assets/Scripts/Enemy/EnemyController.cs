@@ -89,6 +89,8 @@ public class EnemyController : MonoBehaviour, IPoolable
 
     private void Die()
     {
+        PlayerManager.Instance.AddResource(instance.Definition.RewardType, instance.Definition.Reward);
+
         PoolingManager.Instance.Despawn("Enemy", gameObject);
     }
 }

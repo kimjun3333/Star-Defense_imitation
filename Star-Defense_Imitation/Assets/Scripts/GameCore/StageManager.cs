@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
-public class StageManager : Singleton<StageManager>
+public class StageManager : Singleton<StageManager>, IInitializable
 {
     public EnemySpawner spawner;
     public Transform mapParent;
@@ -14,12 +15,16 @@ public class StageManager : Singleton<StageManager>
     private int currentWaveIndex = 0;
     private bool isWaveRunning = false;
 
+    public async Task Init()
+    {
+        LoadStage("Stage_001");
+
+        await Task.CompletedTask;
+
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad0))
-        {
-            LoadStage("Stage_001");
-        }
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             StartNextWave();
@@ -99,4 +104,6 @@ public class StageManager : Singleton<StageManager>
 
         isWaveRunning = false;
     }
+
+  
 }

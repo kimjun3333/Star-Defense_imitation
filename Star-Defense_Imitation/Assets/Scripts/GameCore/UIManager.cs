@@ -102,6 +102,12 @@ public class UIManager : Singleton<UIManager>, IInitializable
         var safeArea = new GameObject("SafeArea", typeof(RectTransform));
         safeArea.transform.SetParent(root.transform, false);
 
+        RectTransform rt = safeArea.GetComponent<RectTransform>();
+        rt.anchorMin = Vector2.zero;
+        rt.anchorMax = Vector2.one;
+        rt.offsetMin = Vector2.zero;
+        rt.offsetMax = Vector2.one;
+
         return safeArea.transform;
     }
 }
