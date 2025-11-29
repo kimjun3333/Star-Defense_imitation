@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerController : MonoBehaviour
+public class TowerController : MonoBehaviour, IPoolable
 {
    private TowerInstance instance;
 
@@ -12,6 +12,19 @@ public class TowerController : MonoBehaviour
     {
         instance = new TowerInstance(so);
         spriteRenderer.sprite = so.Sprite;
+    }
+
+
+    public void OnSpawned()
+    {
+        instance = null;
+        StopAllCoroutines();
+    }
+
+    public void OnDespawned()
+    {
+        instance = null;
+        StopAllCoroutines();
     }
 
     private void Update()
@@ -52,16 +65,11 @@ public class TowerController : MonoBehaviour
 
     private void Attack(EnemyController enemy)
     {
-        Debug.Log($"Attack() enemy null? {(enemy == null)}");
-        Debug.Log($"{instance.Definition.Name}의 공격시도!");
-
-        if (instance.projectilePrefab == null)
-        {
-            Debug.LogError($"ProjectilePrefab이 없습니다. ID {instance.Definition.ProjectileID}");
-            return;
-        }
-
-        GameObject obj = Instantiate(instance.projectilePrefab, transform.position, Quaternion.identity);
+        GameObject obj = PoolingManager.Instance.Spawn(
+            "Projectile",
+            transform.position,
+            Quaternion.identity
+            );
 
         ProjectileController projectile = obj.GetComponent<ProjectileController>();
         projectile.Init(enemy, instance.Definition.Dmg, 8f);

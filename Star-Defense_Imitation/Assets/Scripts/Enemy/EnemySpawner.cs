@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public EnemyController enemyPrefab;
-
     public void SpawnEnemy(EnemySO enemySO, List<Transform> wayPoints)
     {
-        EnemyController enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        GameObject obj = PoolingManager.Instance.Spawn(
+            "Enemy",
+            transform.position,
+            Quaternion.identity
+            );
+
+        EnemyController enemy = obj.GetComponent<EnemyController>();
         enemy.Init(enemySO, wayPoints);
     }
 }

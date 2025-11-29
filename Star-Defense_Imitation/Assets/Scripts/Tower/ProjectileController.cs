@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileController : MonoBehaviour
+public class ProjectileController : MonoBehaviour, IPoolable
 {
     private EnemyController target;
     private float dmg;
@@ -15,11 +15,24 @@ public class ProjectileController : MonoBehaviour
         this.speed = speed;
     }
 
+
+    public void OnSpawned()
+    {
+        target = null;
+        StopAllCoroutines();
+    }
+
+    public void OnDespawned()
+    {
+        target = null;
+        StopAllCoroutines();
+    }
+
     private void Update()
     {
-        if(target == null)
+        if (target == null || !target.gameObject.activeSelf)
         {
-            Destroy(gameObject);
+            PoolingManager.Instance.Despawn("Projectile", gameObject);
             return;
         }
 
@@ -36,7 +49,7 @@ public class ProjectileController : MonoBehaviour
     private void HitTarget()
     {
         target.TakeDamage(dmg);
-
-        Destroy(gameObject); //todo 풀링
+        PoolingManager.Instance.Despawn("Projectile", gameObject);
     }
+
 }

@@ -16,7 +16,6 @@ public class TowerManager : Singleton<TowerManager>
     {
         GameObject obj = PoolingManager.Instance.Spawn(
             "Tower",
-            DataManager.Instance.GetPrefab("TowerPrefab"),
             pos,
             Quaternion.identity
             );

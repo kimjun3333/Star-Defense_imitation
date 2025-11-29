@@ -6,7 +6,7 @@ public class TowerInstance
 {
     public TowerSO Definition;
 
-    public GameObject projectilePrefab;
+    public GameObject projectilePrefab; //이 부분도 없앨 예정.
 
     public float CurrentCooldown;
 

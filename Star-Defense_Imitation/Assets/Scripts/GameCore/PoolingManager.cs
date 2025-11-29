@@ -8,6 +8,7 @@ public class PoolingManager : Singleton<PoolingManager>, IInitializable
 {
     private Dictionary<string, Queue<GameObject>> poolDict = new();
     private Dictionary<string, Transform> parentDict = new();
+    private Dictionary<string, GameObject> prefabDict = new();
 
     public async Task Init()
     {
@@ -21,7 +22,7 @@ public class PoolingManager : Singleton<PoolingManager>, IInitializable
 
         var projectilePrefabs = DataManager.Instance.GetAllDataOfTypeByLabel<GameObject>("ProjectilePrefab");
         if (projectilePrefabs.Count > 0)
-            Preload("Projectile", projectilePrefabs[0], 30);
+            Preload("Projectile", projectilePrefabs[0], 10);
 
         await Task.Yield();
     }
@@ -42,6 +43,8 @@ public class PoolingManager : Singleton<PoolingManager>, IInitializable
         if (!poolDict.ContainsKey(key))
             poolDict[key] = new Queue<GameObject>();
 
+        prefabDict[key] = prefab;
+
         Transform parent = GetParent(key);
 
         for(int i = 0; i < count; i++)
@@ -52,10 +55,25 @@ public class PoolingManager : Singleton<PoolingManager>, IInitializable
         }
     }
 
-    public GameObject Spawn(string key, GameObject prefab, Vector3 pos, Quaternion rot)
+    public GameObject Spawn(string key, Vector3 pos, Quaternion rot)
     {
         if(!poolDict.ContainsKey(key) || poolDict[key].Count == 0)
-            Preload(key, prefab, 1);
+        {
+            if (!prefabDict.ContainsKey(key))
+            {
+                Debug.LogError($"{key} Prefab이 PoolingManager에 등록되지 않음 Preload 확인");
+                return null;
+            }
+
+            Transform parent = GetParent(key);
+
+            for(int i = 0; i < 5; i++) //풀링이 더 필요한 경우 5개씩 추가생성
+            {
+                GameObject extra = Instantiate(prefabDict[key], parent);
+                extra.SetActive(false);
+                poolDict[key].Enqueue(extra);
+            }
+        }
 
         GameObject obj = poolDict[key].Dequeue();
         obj.transform.SetPositionAndRotation(pos, rot);
@@ -75,7 +93,5 @@ public class PoolingManager : Singleton<PoolingManager>, IInitializable
 
         obj.SetActive(false);
         poolDict[key].Enqueue(obj);
-    }
-
-    
+    } 
 }

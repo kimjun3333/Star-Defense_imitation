@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IPoolable
 {
     [SerializeField] private EnemyInstance instance;
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -23,8 +23,30 @@ public class EnemyController : MonoBehaviour
         EnemyManager.Instance.Register(this);
     }
 
+    public void OnSpawned()
+    {
+        instance = null;
+        waypoints = null;
+        waypointIndex = 0;
+
+        StopAllCoroutines();
+    }
+
+    public void OnDespawned()
+    {
+        if (EnemyManager.Instance != null)
+            EnemyManager.Instance.Unregister(this);
+
+        instance = null;
+        waypoints = null;
+        waypointIndex = 0;
+
+        StopAllCoroutines();
+    }
+
     private void Update()
     {
+        if (instance == null) return;
         Move();
     }
 
@@ -38,12 +60,14 @@ public class EnemyController : MonoBehaviour
             instance.CurrentSpeed * Time.deltaTime
             );
 
-        if(Vector3.Distance(transform.position, waypoints[waypointIndex].position) < 0.1f)
+        if (Vector3.Distance(transform.position, waypoints[waypointIndex].position) < 0.1f)
         {
             waypointIndex++;
-            if(waypointIndex >= waypoints.Count)
+            if (waypointIndex >= waypoints.Count)
             {
                 Debug.Log("골인");
+
+                PoolingManager.Instance.Despawn("Enemy", gameObject);
             }
         }
     }
@@ -52,7 +76,7 @@ public class EnemyController : MonoBehaviour
     {
         instance.CurrentHealth -= dmg;
 
-        if(instance.CurrentHealth <= 0)
+        if (instance.CurrentHealth <= 0)
         {
             Die();
         }
@@ -60,13 +84,6 @@ public class EnemyController : MonoBehaviour
 
     private void Die()
     {
-        EnemyManager.Instance.Unregister(this);
-        Destroy(gameObject);
-    }
-
-    private void OnDestroy()
-    {
-        if (EnemyManager.Instance != null)
-            EnemyManager.Instance.Unregister(this);
+        PoolingManager.Instance.Despawn("Enemy", gameObject);
     }
 }
