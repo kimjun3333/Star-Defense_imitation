@@ -18,6 +18,7 @@ public class AddressableLoader : Singleton<AddressableLoader>, IInitializable
         { "Commander", new[] { typeof(ScriptableObject)} },
         { "Stage", new[] { typeof(ScriptableObject)} },
         { "Wave", new[] { typeof(ScriptableObject)} },
+        { "Bounty", new[] { typeof(ScriptableObject)} },
         { "Sprites", new[] { typeof(Sprite) } },
         { "UI", new[] { typeof(GameObject) } },
         { "MapPrefab", new[] { typeof(GameObject) } },

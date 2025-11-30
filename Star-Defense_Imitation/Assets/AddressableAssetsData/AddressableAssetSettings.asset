@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 7c945d8231455e348a50623c748e91cb
   m_currentHash:
     serializedVersion: 2
-    Hash: a84da560bb9a155cf596f5d2afddc4bd
+    Hash: 134385f0203d5f7acda6c917969365ea
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -51,6 +51,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0d19971678ff6c747b6cd233a06a7c27, type: 2}
   - {fileID: 11400000, guid: 813ac5fa65b36694b9a0d2d24a9c4380, type: 2}
   - {fileID: 11400000, guid: 48d177bdaf9fe6e4caaad66f63922245, type: 2}
+  - {fileID: 11400000, guid: 6ae890318996ba646a909011a4b1ac39, type: 2}
   - {fileID: 11400000, guid: ae3f811c581d49d40845ecadbcf43319, type: 2}
   - {fileID: 11400000, guid: 1459446f4765c944d97c19dfeffc7d34, type: 2}
   - {fileID: 11400000, guid: eafa0ad646006de4dabb2f8721d3b9d9, type: 2}
@@ -109,6 +110,7 @@ MonoBehaviour:
     - TowerPrefab
     - EnemyPrefab
     - Commander
+    - Bounty
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: b2aeb0c2a402ff24cabf76a27fba1383, type: 2}

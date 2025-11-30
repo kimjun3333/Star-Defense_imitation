@@ -19,11 +19,6 @@ public class TileActionUI : UIBase
     {
         base.OnInit();
 
-        summonPanel.SetActive(false);
-        repairPanel.SetActive(false);
-        background.SetActive(false);
-        upgradePanel.SetActive(false);
-
         var bgButton = background.GetComponent<Button>();
         if (bgButton != null)
         {

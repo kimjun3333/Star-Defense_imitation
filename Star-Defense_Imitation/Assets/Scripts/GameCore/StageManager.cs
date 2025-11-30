@@ -9,11 +9,12 @@ public class StageManager : Singleton<StageManager>, IInitializable
     public Transform mapParent;
 
     private GameObject currentMap;
-    private Path currentPath;
-
+    
     private StageSO currentStage;
     private int currentWaveIndex = 0;
     private bool isWaveRunning = false;
+
+    public Path CurrentPath { get; private set; }
 
     public async Task Init()
     {
@@ -42,7 +43,7 @@ public class StageManager : Singleton<StageManager>, IInitializable
         if (mapPrefab == null) return;
 
         currentMap = Instantiate(mapPrefab, mapParent);
-        currentPath = currentMap.GetComponentInChildren<Path>();
+        CurrentPath = currentMap.GetComponentInChildren<Path>();
     }
 
     public void StartNextWave()
@@ -92,7 +93,7 @@ public class StageManager : Singleton<StageManager>, IInitializable
 
             for(int i = 0; i < spawnInfo.Count; i++)
             {
-                spawner.SpawnEnemy(enemy, currentPath.Waypoints);
+                spawner.SpawnEnemy(enemy, CurrentPath.Waypoints);
                 yield return new WaitForSeconds(0.5f); //Wave Interval 넣기 적 나오는 텀
             }
         }

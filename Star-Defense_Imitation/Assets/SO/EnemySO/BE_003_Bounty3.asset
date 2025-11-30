@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e1beed98931f2741a5a1e0c7f03682a, type: 3}
-  m_Name: E_002_Enemy2
+  m_Name: BE_003_Bounty3
   m_EditorClassIdentifier: 
-  ID: E_002
-  Name: Enemy2
-  SpriteID: Enemy_002
+  ID: BE_003
+  Name: Bounty3
+  SpriteID: Bounty_003
   Sprite: {fileID: 0}
-  Health: 50
-  Speed: 0.5
-  Dmg: 12
-  AtkSpeed: 1.2
-  UnitType: 1
+  Health: 900
+  Speed: 1
+  Dmg: 50
+  AtkSpeed: 1
+  UnitType: 0
   RewardType: 0
-  Reward: 10
+  Reward: 200

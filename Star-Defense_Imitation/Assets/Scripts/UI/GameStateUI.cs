@@ -11,9 +11,6 @@ public class GameStateUI : UIBase
     {
         base.OnInit();
 
-        winPanel.SetActive(false);
-        losePanel.SetActive(false);
-
         EventManager.Instance.Subscribe(EventType.GameWin, OnGameWin);
         EventManager.Instance.Subscribe(EventType.GameOver, OnGameOver);
     }

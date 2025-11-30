@@ -13,7 +13,7 @@ public class PlayerManager : Singleton<PlayerManager>, IInitializable
     public async Task Init()
     {
         resources[ResourceType.Gold] = 10000;
-        resources[ResourceType.Mineral] = 0;
+        resources[ResourceType.Mineral] = 10000;
 
         EventManager.Instance.Trigger(EventType.ResourceChanged,
         new ResourceChangedPayload(ResourceType.Gold, resources[ResourceType.Gold]));

@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum UIStartState
+{
+    Off,
+    On
+}
 public enum LayerType //레이어 상단, 중단, 하단 정하려고 만든 Enum
 {
     Bottom,
@@ -12,6 +17,9 @@ public class UIBase : MonoBehaviour
 {
     [Header("UI Layer Setting")]
     [SerializeField] public LayerType layerType = LayerType.Middle;
+
+    [Header("Start State")]
+    [SerializeField] public UIStartState startState = UIStartState.Off;
 
     protected bool isInit = false;
 

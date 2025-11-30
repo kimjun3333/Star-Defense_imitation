@@ -14,6 +14,9 @@ public enum EventType
     CommanderClicked,
     GameWin,
     GameOver,
+    BountyButtonClicked, //현상금 버튼
+    WorkerButtonClicked, //탐사정 버튼
+    EnhanceButtonClicked, //강화버튼
 }
 public class EventManager : Singleton<EventManager>
 {

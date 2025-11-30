@@ -47,6 +47,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6459d473c288764c818c1dcd90b9a1e
+    m_Address: Assets/Prefab/UI/MainMenuButtonUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa1252b4e08649e4a93af5ecd5dd1813
+    m_Address: Assets/Prefab/UI/BountyPanelUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 67d1a9e6c9b132e489b2d215bf94310e, type: 2}
   m_SchemaSet:

@@ -396,6 +396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layerType: 1
+  startState: 1
   waveText: {fileID: 911077609268437770}
 --- !u!1 &8030341984949229472
 GameObject:

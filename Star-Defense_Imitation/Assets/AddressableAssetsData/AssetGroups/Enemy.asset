@@ -23,8 +23,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - Enemy
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4fd85130f60dd0b4a9a532809389de58
+    m_Address: Assets/SO/EnemySO/BE_002_Bounty2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60ab50d8563cdb1488c051bedc6e5c84
+    m_Address: Assets/SO/EnemySO/BE_006_Bounty6.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c9e1209af05b0a45ace94868c4206ee
     m_Address: "Assets/SO/EnemySO/E_004_\uB300\uD615\uC801.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8316f030908a6d247984bf096e81c74e
+    m_Address: Assets/SO/EnemySO/BE_004_Bounty4.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Enemy
@@ -41,8 +59,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - Enemy
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9ffea151a96ba04d9fc4394372488df
+    m_Address: Assets/SO/EnemySO/BE_005_Bounty5.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cffb00844c118624481fe6623f497f67
     m_Address: "Assets/SO/EnemySO/E_001_\uC18C\uD615\uC801.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db0726677f7f8404994828d80e78c386
+    m_Address: Assets/SO/EnemySO/BE_003_Bounty3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f55f61f119c9a8c468e47459dfc7ee0c
+    m_Address: Assets/SO/EnemySO/BE_001_Bounty1.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Enemy

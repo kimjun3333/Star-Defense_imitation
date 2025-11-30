@@ -9,17 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e1beed98931f2741a5a1e0c7f03682a, type: 3}
-  m_Name: E_002_Enemy2
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: Bounty_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  ID: E_002
-  Name: Enemy2
-  SpriteID: Enemy_002
-  Sprite: {fileID: 0}
-  Health: 50
-  Speed: 0.5
-  Dmg: 12
-  AtkSpeed: 1.2
-  UnitType: 1
-  RewardType: 0
-  Reward: 10
+  m_Group: {fileID: 11400000, guid: 6ae890318996ba646a909011a4b1ac39, type: 2}
+  m_StaticContent: 0

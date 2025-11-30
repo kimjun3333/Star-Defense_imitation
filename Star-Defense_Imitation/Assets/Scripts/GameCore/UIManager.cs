@@ -43,9 +43,17 @@ public class UIManager : Singleton<UIManager>, IInitializable
 
             var ui = instance.GetComponent<UIBase>();
             ui.Init();
-            ui.Open();
 
             allUI[prefab.name] = ui;
+
+            if (ui.startState == UIStartState.On)
+            {
+                ui.Open();
+            }
+            else
+            {
+                ui.Close();
+            }
         }
 
         Debug.Log($"UIManager Init 완료 등록 UI : {allUI.Count}개");

@@ -9,6 +9,7 @@ public static class URLContainer
     public static string commanderURL = "https://opensheet.elk.sh/1MX7Pi7p9tuYxsoqtnmjGidSzMs3Wwyu7h0MkwYgALRo/Commander";
     public static string StageURL = "https://opensheet.elk.sh/1MX7Pi7p9tuYxsoqtnmjGidSzMs3Wwyu7h0MkwYgALRo/Stage";
     public static string WaveURL = "https://opensheet.elk.sh/1MX7Pi7p9tuYxsoqtnmjGidSzMs3Wwyu7h0MkwYgALRo/Wave";
+    public static string BountyURL = "https://opensheet.elk.sh/1MX7Pi7p9tuYxsoqtnmjGidSzMs3Wwyu7h0MkwYgALRo/Bounty";
 
     public static readonly Dictionary<Type, (Type dataType, string url)> SheetMap = new()
     {
@@ -17,5 +18,6 @@ public static class URLContainer
         { typeof(CommanderSO), (typeof(CommanderSheetData), commanderURL) },
         { typeof(StageSO), (typeof(StageSheetData), StageURL) },
         { typeof(WaveSO), (typeof(WaveSheetData), WaveURL) },
+        { typeof(BountySO), (typeof(BountySheetData), BountyURL) },
     };
 }

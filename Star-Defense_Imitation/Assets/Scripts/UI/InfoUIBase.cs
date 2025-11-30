@@ -11,10 +11,6 @@ public class InfoUIBase : UIBase
     {
         base.OnInit();
 
-        background.SetActive(false);
-        towerPanel.gameObject.SetActive(false);
-        commanderPanel.gameObject.SetActive(false);
-
         var bgBtn = background.GetComponent<Button>();
         if (bgBtn != null)
         {
