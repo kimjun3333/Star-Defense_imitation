@@ -18,6 +18,8 @@ MonoBehaviour:
   Sprite: {fileID: 0}
   Health: 100
   Speed: 1
+  Dmg: 50
+  AtkSpeed: 1.8
   UnitType: 0
   RewardType: 0
   Reward: 10

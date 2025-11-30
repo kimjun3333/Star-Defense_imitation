@@ -17,7 +17,6 @@ public class TowerSheetData : BaseSheetData
 
     public string SkillID;
     public string ProjectileSpriteID; //발사체 ID
-
 }
 public class TowerSO : BaseSO
 {

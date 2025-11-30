@@ -15,6 +15,7 @@ public class AddressableLoader : Singleton<AddressableLoader>, IInitializable
     {
         { "Tower", new[] { typeof(ScriptableObject) } },
         { "Enemy", new[] { typeof(ScriptableObject)} },
+        { "Commander", new[] { typeof(ScriptableObject)} },
         { "Stage", new[] { typeof(ScriptableObject)} },
         { "Wave", new[] { typeof(ScriptableObject)} },
         { "Sprites", new[] { typeof(Sprite) } },
@@ -123,6 +124,19 @@ public class AddressableLoader : Singleton<AddressableLoader>, IInitializable
                             towerSO.ProjectileSprite = projSprite;
                         else
                             Debug.LogWarning($"AddressableLoader : {so.Name} : SpriteID '{towerSO.ProjectileSpriteID}' 스프라이트 없음");
+                    }
+                }
+
+                else if(so is CommanderSO commanderSO)
+                {
+                    if(!string.IsNullOrEmpty(commanderSO.ProjectileSpriteID))
+                    {
+                        var projSprite = sprites.FirstOrDefault(s => s.name == commanderSO.ProjectileSpriteID);
+
+                        if (projSprite != null)
+                            commanderSO.ProjectileSprite = projSprite;
+                        else
+                            Debug.LogWarning($"AddressableLoader : {so.Name} : SpriteID '{commanderSO.ProjectileSpriteID}' 스프라이트 없음");
                     }
                 }
             }

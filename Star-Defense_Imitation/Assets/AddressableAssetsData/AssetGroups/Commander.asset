@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Commander
+  m_EditorClassIdentifier: 
+  m_GroupName: Commander
+  m_Data:
+    m_SerializedData: []
+  m_GUID: b3bc71fdc67d5da4ab4168b858ce574e
+  m_SerializeEntries:
+  - m_GUID: b0f9a070ef2e9604cbf20f8b52ba8ae3
+    m_Address: "Assets/SO/CommanderSO/C_003_\uC9C0\uD718\uAD003.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Commander
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de4db7080196fce4fb026eed69997e07
+    m_Address: "Assets/SO/CommanderSO/C_002_\uC9C0\uD718\uAD002.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Commander
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e373a42e4a240cd4da76e86b26850d1c
+    m_Address: "Assets/SO/CommanderSO/C_001_\uC9C0\uD718\uAD001.asset"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Commander
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 67d1a9e6c9b132e489b2d215bf94310e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 09d45917d910f7a4ebe0a81c3e77c5d1, type: 2}
+    - {fileID: 11400000, guid: 59028c51fa8dce346baf8ece312fc4ca, type: 2}

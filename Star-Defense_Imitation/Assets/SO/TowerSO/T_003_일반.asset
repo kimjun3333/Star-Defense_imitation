@@ -25,4 +25,4 @@ MonoBehaviour:
   Tribe: 2
   SkillID: 
   ProjectileSpriteID: Tower_005
-  ProjectileSprite: {fileID: 0}
+  ProjectileSprite: {fileID: 21300000, guid: fad0ddd6e6bbc62418410a003f9ffdf3, type: 3}
