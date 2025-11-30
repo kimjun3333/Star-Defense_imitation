@@ -29,6 +29,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc20d097e447f3d41b24709f49e6112d
+    m_Address: Assets/Prefab/UI/TileActionUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 67d1a9e6c9b132e489b2d215bf94310e, type: 2}
   m_SchemaSet:

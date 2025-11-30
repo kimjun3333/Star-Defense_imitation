@@ -40,32 +40,25 @@ public class TileController : MonoBehaviour
         {
             tileType = TileType.Normal;
             Debug.Log("타일 타입 -> Normal");
+            //TODO : 스프라이트 변경
         }
     }
 
     private void OnMouseDown()
     {
-        if(hasTower)
+        if (hasTower)
         {
             Debug.Log("이미 타워가 존재합니다.");
             return;
         }
 
-        if(tileType == TileType.Repair)
-        {
-            Debug.Log("수리타일 입니다. 설치 불가");
-            return;
-        }
-
-        if(CanPlaceTower)
-        {
-            //타워건설 가능
-        }
-
-        TryPlaceRandomTower();
+        EventManager.Instance.Trigger(
+        EventType.TileClicked,
+        new TileClickedPayload(this)
+        );
     }
 
-    private void TryPlaceRandomTower()
+    public void TryPlaceRandomTower()
     {
         if(!CanPlaceTower)
         {
