@@ -16,6 +16,7 @@ MonoBehaviour:
   Name: "\uC9C0\uD718\uAD001"
   SpriteID: Tower_001
   Sprite: {fileID: 0}
+  Health: 1000
   Dmg: 30
   Range: 3
   AtkSpeed: 1.5

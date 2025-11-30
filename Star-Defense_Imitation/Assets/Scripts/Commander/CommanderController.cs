@@ -2,67 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerController : MonoBehaviour, IPoolable
+public class CommanderController : MonoBehaviour
 {
-    [SerializeField] private TowerInstance instance;
-
+    [SerializeField] private CommanderSO so;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
-    public void Init(TowerSO so)
-    {
-        instance = new TowerInstance(so);
-        spriteRenderer.sprite = so.Sprite;
-    }
+    private float currentHP;
+    private float currentCooldown;
 
     private void Start()
     {
         if (spriteRenderer == null)
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-    }
 
-    public void OnSpawned()
-    {
-        instance = null;
-        StopAllCoroutines();
-    }
+        spriteRenderer.sprite = so.Sprite;
 
-    public void OnDespawned()
-    {
-        instance = null;
-        StopAllCoroutines();
+        currentHP = so.Health;
+        currentCooldown = 0f;
     }
 
     private void Update()
     {
-        if (instance == null) return;
+        if (currentHP <= 0)
+            return;
 
-        if (instance.CurrentCooldown > 0)
-            instance.CurrentCooldown -= Time.deltaTime;
+        if (currentCooldown > 0)
+            currentCooldown -= Time.deltaTime;
 
         EnemyController target = FindTarget();
         if (target == null) return;
 
-        if (instance.CurrentCooldown <= 0)
+        if (currentCooldown <= 0)
         {
             Attack(target);
-            instance.CurrentCooldown = 1f / instance.Definition.AtkSpeed;
+            currentCooldown = 1f / so.AtkSpeed;
         }
     }
-
 
     private EnemyController FindTarget()
     {
         List<EnemyController> enemies = EnemyManager.Instance.GetEnemies();
-
-        float range = instance.Definition.Range;
+        float range = so.Range;
 
         foreach (var enemy in enemies)
         {
+            if (enemy == null) continue;
+
             float dist = Vector2.Distance(transform.position, enemy.transform.position);
             if (dist <= range)
-            {
                 return enemy;
-            }
         }
 
         return null;
@@ -74,9 +62,28 @@ public class TowerController : MonoBehaviour, IPoolable
             "Projectile",
             transform.position,
             Quaternion.identity
-            );
+        );
 
         ProjectileController projectile = obj.GetComponent<ProjectileController>();
-        projectile.Init(enemy, instance.Definition.Dmg, 8f, instance.Definition.ProjectileSprite);
+
+        projectile.Init(enemy, so.Dmg, 8f, so.ProjectileSprite);
+    }
+
+    public void TakeDamage(float dmg)
+    {
+        if (currentHP <= 0) return;
+
+        currentHP -= dmg;
+
+        if (currentHP <= 0)
+        {
+            currentHP = 0;
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("게임 오버");
     }
 }

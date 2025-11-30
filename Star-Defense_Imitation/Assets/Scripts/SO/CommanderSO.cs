@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class CommanderSheetData : BaseSheetData
 {
+    public float Health;
     public float Dmg;
     public float Range;
     public float AtkSpeed;
@@ -15,6 +16,7 @@ public class CommanderSheetData : BaseSheetData
 }
 public class CommanderSO : BaseSO
 {
+    public float Health;
     public float Dmg;
     public float Range;
     public float AtkSpeed;
@@ -29,6 +31,7 @@ public class CommanderSO : BaseSO
 
         ApplyBaseData(data);
 
+        Health = data.Health;
         Dmg = data.Dmg;
         Range = data.Range;
         AtkSpeed = data.AtkSpeed;
