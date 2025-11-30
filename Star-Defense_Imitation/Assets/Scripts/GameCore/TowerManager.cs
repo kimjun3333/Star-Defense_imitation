@@ -13,15 +13,18 @@ public class TowerManager : Singleton<TowerManager>
 {
     [SerializeField] private List<TowerController> towers = new(); //설치한 타워목록
 
-    public TowerController BuildTower(TowerSO so, Vector3 pos)
+    public TowerController BuildTower(TowerSO so, TileController tile)
     {
         GameObject obj = PoolingManager.Instance.Spawn(
             "Tower",
-            pos,
+            tile.transform.position,
             Quaternion.identity
             );
 
         TowerController tower = obj.GetComponent<TowerController>();
+        tower.ownerTile = tile;
+        tile.SetTower(tower);
+
         tower.Init(so);
 
         towers.Add(tower);

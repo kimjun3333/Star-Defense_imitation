@@ -19,16 +19,18 @@ public class TowerInfoPanel : MonoBehaviour
 
     public void SetData(TowerController tower)
     {
-        TowerSO data = tower.Instance.Definition;
+        TowerSO def = tower.Instance.Definition;
+        TowerInstance instance = tower.Instance;
 
-        towerSprite.sprite = data.Sprite;
-        nameText.text = data.Name;
+        towerSprite.sprite = def.Sprite;
+        rarityText.text = def.Rarity.ToString();
+        nameText.text = def.Name;
 
-        dmgText.text = $"ATK : {data.Dmg}";
-        atkSpeedText.text = $"ATKSpeed : {data.AtkSpeed}";
+        dmgText.text = $"ATK : {instance.RuntimeDmg}";
+        atkSpeedText.text = $"ATKSpeed : {instance.RuntimeAtkSpeed}";
 
-        targetTypeText.text = $"Target : [{data.TargetType}]";
+        targetTypeText.text = $"Target : [{def.TargetType}]";
 
-        tribeTypeText.text = $"Tribe : [{data.Tribe}]";
+        tribeTypeText.text = $"Tribe : [{def.Tribe}]";
     }
 }

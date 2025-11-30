@@ -9,7 +9,6 @@ public class GameManager : Singleton<GameManager>
     {
         if (Input.GetKeyDown(KeyCode.Keypad1))
             Time.timeScale = 2.0f;
-
     }
 #endif
     public void Victory()

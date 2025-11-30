@@ -66,11 +66,6 @@ public class TileController : MonoBehaviour
         }
     }
 
-    public float GetBuffMult()
-    {
-        return tileType == TileType.Buff ? 1.3f : 1f;
-    }
-
     public void Repair()
     {
         if(tileType == TileType.Repair)
@@ -104,9 +99,8 @@ public class TileController : MonoBehaviour
             return;
         }
 
-        TowerController tower = TowerManager.Instance.BuildTower(so, transform.position);
+        TowerController tower = TowerManager.Instance.BuildTower(so, this);
 
-        tower.ownerTile = this;
         currentTower = tower;
         hasTower = true;
 

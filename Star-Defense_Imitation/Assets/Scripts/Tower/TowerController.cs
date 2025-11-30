@@ -15,6 +15,8 @@ public class TowerController : MonoBehaviour, IPoolable
     {
         instance = new TowerInstance(so);
         spriteRenderer.sprite = so.Sprite;
+
+        ApplyTileBuff();
     }
 
     private void Start()
@@ -51,7 +53,7 @@ public class TowerController : MonoBehaviour, IPoolable
         if (instance.CurrentCooldown <= 0)
         {
             Attack(target);
-            instance.CurrentCooldown = 1f / instance.Definition.AtkSpeed;
+            instance.CurrentCooldown = 1f / instance.RuntimeAtkSpeed;
         }
     }
 
@@ -83,6 +85,16 @@ public class TowerController : MonoBehaviour, IPoolable
             );
 
         ProjectileController projectile = obj.GetComponent<ProjectileController>();
-        projectile.Init(enemy, instance.Definition.Dmg, 8f, instance.Definition.ProjectileSprite);
+        projectile.Init(enemy, instance.RuntimeDmg, 8f, instance.Definition.ProjectileSprite);
+    }
+
+    private void ApplyTileBuff()
+    {
+        if (ownerTile == null) return;
+
+        if (ownerTile.tileType == TileType.Buff)
+        {
+            instance.RuntimeAtkSpeed *= 1.2f;
+        }
     }
 }

@@ -14,7 +14,6 @@ public class TowerUpgradeManager : Singleton<TowerUpgradeManager>
         TowerController towerB = sameList.Find(t => t != baseTower);
 
         TileController targetTile = towerA.ownerTile;
-        Vector3 spawnPos = baseTower.transform.position;
 
         TowerSO nextSO = GetRandomNextGradeTower(baseTower.Instance.Definition);
 
@@ -27,10 +26,7 @@ public class TowerUpgradeManager : Singleton<TowerUpgradeManager>
         TowerManager.Instance.RemoveTower(towerA);
         TowerManager.Instance.RemoveTower(towerB);
 
-        TowerController newTower = TowerManager.Instance.BuildTower(nextSO, spawnPos);
-
-        newTower.ownerTile = targetTile;
-        targetTile.SetTower(newTower);
+        TowerController newTower = TowerManager.Instance.BuildTower(nextSO, targetTile);
     }
 
     private TowerSO GetRandomNextGradeTower(TowerSO current)
