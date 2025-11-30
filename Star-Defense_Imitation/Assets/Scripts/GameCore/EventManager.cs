@@ -6,7 +6,7 @@ using UnityEngine;
 public enum EventType
 {
     ResourceChanged,
-    WaveChanged,
+    WaveStarted,
     EnemyDied,
 }
 public class EventManager : Singleton<EventManager>
