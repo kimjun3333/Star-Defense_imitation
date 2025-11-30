@@ -10,6 +10,7 @@ public class TileActionUI : UIBase
     [SerializeField] private GameObject background;
     [SerializeField] private GameObject summonPanel;
     [SerializeField] private GameObject repairPanel;
+    [SerializeField] private GameObject upgradePanel;
 
     [SerializeField] private TextMeshProUGUI summonCostText;
     [SerializeField] private TextMeshProUGUI repairCostText;
@@ -23,6 +24,7 @@ public class TileActionUI : UIBase
         summonPanel.SetActive(false);
         repairPanel.SetActive(false);
         background.SetActive(false);
+        upgradePanel.SetActive(false);
 
         var bgButton = background.GetComponent<Button>();
         if (bgButton != null)
@@ -43,6 +45,13 @@ public class TileActionUI : UIBase
         {
             repairButton.onClick.RemoveAllListeners();
             repairButton.onClick.AddListener(OnClickRepair);
+        }
+
+        var upgradeButton = upgradePanel.GetComponent<Button>();
+        if (upgradeButton != null)
+        {
+            upgradeButton.onClick.RemoveAllListeners();
+            upgradeButton.onClick.AddListener(OnClickUpgrade);
         }
 
         EventManager.Instance.Subscribe(EventType.TileClicked, OnTileClicked);
@@ -68,11 +77,19 @@ public class TileActionUI : UIBase
         {
             summonPanel.SetActive(false);
             repairPanel.SetActive(true);
+            upgradePanel.SetActive(false);
+        }
+        else if(tile.hasTower)
+        {
+            summonPanel.SetActive(false);
+            repairPanel.SetActive(false);
+            upgradePanel.SetActive(true);
         }
         else
         {
             summonPanel.SetActive(true);
             repairPanel.SetActive(false);
+            upgradePanel.SetActive(false);
         }
 
         summonCostText.text = $"{PlayerManager.Instance.summonCost.ToString()} G";
@@ -91,6 +108,7 @@ public class TileActionUI : UIBase
         background.SetActive(false);
         summonPanel.SetActive(false);
         repairPanel.SetActive(false);
+        upgradePanel.SetActive(false);
 
         currentTile = null;
     }
@@ -124,6 +142,16 @@ public class TileActionUI : UIBase
         }
 
         currentTile.Repair();
+        Close();
+    }
+
+    public void OnClickUpgrade()
+    {
+        if (currentTile == null) return;
+        if (currentTile.CurrentTower == null) return;
+
+        TowerUpgradeManager.Instance.Upgrade(currentTile.CurrentTower);
+
         Close();
     }
 

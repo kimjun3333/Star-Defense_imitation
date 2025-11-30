@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public enum RarityType
 {
-    Common, //고급
+    Common = 1, //고급
     Rare, //희귀
     Unique, //위대
     Legendary, //전설

@@ -8,6 +8,9 @@ public class TowerController : MonoBehaviour, IPoolable
 
     [SerializeField] private SpriteRenderer spriteRenderer;
 
+    public TileController ownerTile;
+    public TowerInstance Instance => instance;
+
     public void Init(TowerSO so)
     {
         instance = new TowerInstance(so);

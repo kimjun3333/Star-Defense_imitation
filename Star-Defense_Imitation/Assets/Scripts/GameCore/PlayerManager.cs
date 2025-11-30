@@ -12,7 +12,7 @@ public class PlayerManager : Singleton<PlayerManager>, IInitializable
 
     public async Task Init()
     {
-        resources[ResourceType.Gold] = 100;
+        resources[ResourceType.Gold] = 10000;
         resources[ResourceType.Mineral] = 0;
 
         EventManager.Instance.Trigger(EventType.ResourceChanged,

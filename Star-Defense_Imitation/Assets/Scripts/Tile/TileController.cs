@@ -21,9 +21,11 @@ public class TileController : MonoBehaviour
 
     [SerializeField] private SpriteRenderer sprite;
 
+    [SerializeField] private TowerController currentTower;
+    public TowerController CurrentTower => currentTower;
+
     [Header("설치 여부")]
     public bool hasTower = false;
-
     public bool CanPlaceTower
     {
         get
@@ -81,12 +83,6 @@ public class TileController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (hasTower)
-        {
-            Debug.Log("이미 타워가 존재합니다.");
-            return;
-        }
-
         EventManager.Instance.Trigger(
         EventType.TileClicked,
         new TileClickedPayload(this)
@@ -110,9 +106,25 @@ public class TileController : MonoBehaviour
 
         TowerController tower = TowerManager.Instance.BuildTower(so, transform.position);
 
+        tower.ownerTile = this;
+        currentTower = tower;
         hasTower = true;
 
         Debug.Log($"타워 설치 완료 : {so.ID}");
+    }
+    public void SetTower(TowerController tower)
+    {
+        currentTower = tower;
+        hasTower = (tower != null);
+    }
+
+    public void RemoveTower()
+    {
+        if (currentTower != null)
+            currentTower.ownerTile = null;
+
+        currentTower = null;
+        hasTower = false;
     }
 
     private TowerSO GetRandomTowerSO()
