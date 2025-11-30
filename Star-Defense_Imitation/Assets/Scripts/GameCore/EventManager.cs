@@ -10,6 +10,8 @@ public enum EventType
     WaveEnded,
     EnemyDied,
     TileClicked,
+    TowerClicked,
+    CommanderClicked,
 }
 public class EventManager : Singleton<EventManager>
 {

@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 5120e0a3175502347b956c490fd9c8cb
   m_SerializeEntries:
+  - m_GUID: 39ab0de944c5e5d4387f7144c301726b
+    m_Address: Assets/Prefab/UI/InfoUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4f430702ea4bab4bbf6899133a863c9
     m_Address: Assets/Prefab/UI/WaveUI.prefab
     m_ReadOnly: 0

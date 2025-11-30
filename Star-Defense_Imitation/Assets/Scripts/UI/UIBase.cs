@@ -4,9 +4,9 @@ using UnityEngine;
 
 public enum LayerType //레이어 상단, 중단, 하단 정하려고 만든 Enum
 {
-    Top,
+    Bottom,
     Middle,
-    Bottom
+    Top,
 }
 public class UIBase : MonoBehaviour
 {

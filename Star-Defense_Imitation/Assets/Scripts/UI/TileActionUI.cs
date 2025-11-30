@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -71,6 +69,7 @@ public class TileActionUI : UIBase
         currentTile = tile;
 
         Vector3 screenPos = Camera.main.WorldToScreenPoint(tile.transform.position);
+        screenPos.y += 10f;
         transform.position = screenPos;
 
         if (tile.tileType == TileType.Repair)

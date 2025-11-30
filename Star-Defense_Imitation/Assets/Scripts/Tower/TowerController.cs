@@ -22,7 +22,10 @@ public class TowerController : MonoBehaviour, IPoolable
         if (spriteRenderer == null)
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
-
+    private void OnMouseDown()
+    {
+        EventManager.Instance.Trigger(EventType.TowerClicked, this);
+    }
     public void OnSpawned()
     {
         instance = null;

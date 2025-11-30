@@ -12,6 +12,8 @@ public class CommanderController : Singleton<CommanderController>
 
     [SerializeField] private HPBarController hpBar;
 
+    public CommanderSO Definition => so;
+
     private void Start()
     {
         if (spriteRenderer == null)
@@ -42,7 +44,10 @@ public class CommanderController : Singleton<CommanderController>
             currentCooldown = 1f / so.AtkSpeed;
         }
     }
-
+    private void OnMouseDown()
+    {
+        EventManager.Instance.Trigger(EventType.CommanderClicked, this);
+    }
     private EnemyController FindTarget()
     {
         List<EnemyController> enemies = EnemyManager.Instance.GetEnemies();
