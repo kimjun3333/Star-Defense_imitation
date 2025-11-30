@@ -10,6 +10,8 @@ public class CommanderController : Singleton<CommanderController>
     [SerializeField] private float currentHP;
     private float currentCooldown;
 
+    [SerializeField] private HPBarController hpBar;
+
     private void Start()
     {
         if (spriteRenderer == null)
@@ -19,6 +21,8 @@ public class CommanderController : Singleton<CommanderController>
 
         currentHP = so.Health;
         currentCooldown = 0f;
+
+        hpBar.SetHP(currentHP, so.Health);
     }
 
     private void Update()
@@ -74,6 +78,7 @@ public class CommanderController : Singleton<CommanderController>
         if (currentHP <= 0) return;
 
         currentHP -= dmg;
+        hpBar.SetHP(currentHP, so.Health);
 
         if (currentHP <= 0)
         {

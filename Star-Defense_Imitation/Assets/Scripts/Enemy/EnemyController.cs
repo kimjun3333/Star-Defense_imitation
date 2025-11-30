@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour, IPoolable
 
     private CommanderController commander;
 
+    [SerializeField] private HPBarController hpBar;
+
     [SerializeField] private float attackRange = 0.5f;
     private float currentCooldown = 0f;
 
@@ -30,6 +32,8 @@ public class EnemyController : MonoBehaviour, IPoolable
         commander = CommanderController.Instance;
 
         currentCooldown = 0f;
+
+        hpBar.SetHP(instance.CurrentHealth, instance.Definition.Health);
     }
     private void Start()
     {
@@ -124,6 +128,7 @@ public class EnemyController : MonoBehaviour, IPoolable
     public void TakeDamage(float dmg)
     {
         instance.CurrentHealth -= dmg;
+        hpBar.SetHP(instance.CurrentHealth, instance.Definition.Health);
 
         if (instance.CurrentHealth <= 0)
         {
