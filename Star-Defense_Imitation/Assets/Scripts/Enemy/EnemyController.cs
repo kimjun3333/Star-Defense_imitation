@@ -11,6 +11,10 @@ public class EnemyController : MonoBehaviour, IPoolable
     private List<Transform> waypoints;
     private int waypointIndex = 0;
 
+    private CommanderController commander;
+    [SerializeField] private float attackRange = 0.5f;
+    private float currentCooldown = 0f;
+
     public void Init(EnemySO so, List<Transform> path)
     {
         instance = new EnemyInstance(so);
@@ -21,6 +25,10 @@ public class EnemyController : MonoBehaviour, IPoolable
         transform.position = waypoints[0].position;
 
         EnemyManager.Instance.Register(this);
+
+        commander = FindObjectOfType<CommanderController>();
+
+        currentCooldown = 0f;
     }
     private void Start()
     {
@@ -34,6 +42,9 @@ public class EnemyController : MonoBehaviour, IPoolable
         waypoints = null;
         waypointIndex = 0;
 
+        commander = null;
+        currentCooldown = 0f;
+
         StopAllCoroutines();
     }
 
@@ -46,13 +57,33 @@ public class EnemyController : MonoBehaviour, IPoolable
         waypoints = null;
         waypointIndex = 0;
 
+        commander = null;
+        currentCooldown = 0f;
+
         StopAllCoroutines();
     }
 
     private void Update()
     {
         if (instance == null) return;
-        Move();
+
+        if (commander == null || commander.IsDead())
+        {
+            Move();
+            return;
+        }
+
+        float distToCommander = Vector2.Distance(transform.position, commander.transform.position);
+
+        if (distToCommander <= attackRange)
+        {
+            AttackCommander();
+        }
+        else
+        {
+            // ▶ 이동 모드
+            Move();
+        }
     }
 
     private void Move()
@@ -75,6 +106,19 @@ public class EnemyController : MonoBehaviour, IPoolable
                 PoolingManager.Instance.Despawn("Enemy", gameObject);
             }
         }
+    }
+
+    private void AttackCommander()
+    {
+        if (currentCooldown > 0f)
+        {
+            currentCooldown -= Time.deltaTime;
+            return;
+        }
+
+        commander.TakeDamage(instance.Definition.Dmg);
+
+        currentCooldown = 1f / instance.Definition.AtkSpeed;
     }
 
     public void TakeDamage(float dmg)

@@ -7,7 +7,7 @@ public class CommanderController : MonoBehaviour
     [SerializeField] private CommanderSO so;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
-    private float currentHP;
+    [SerializeField] private float currentHP;
     private float currentCooldown;
 
     private void Start()
@@ -85,5 +85,10 @@ public class CommanderController : MonoBehaviour
     private void Die()
     {
         Debug.Log("게임 오버");
+    }
+
+    public bool IsDead()
+    {
+        return currentHP <= 0;
     }
 }
