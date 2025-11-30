@@ -23,14 +23,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0c1f95497069c2d4f8eb20c6553cbc01
-    m_Address: Assets/Sprites/PNG/Enemy_002.png
+  - m_GUID: 105ca764c4bfc9545ba8884287aa4ed8
+    m_Address: Assets/Externals/Pixel Monster Pack/64x64 monsters/Enemy_003.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3109af30c55a06d469e2206d30d0dd84
-    m_Address: Assets/Sprites/PNG/Enemy_006.png
+  - m_GUID: 28ba1285875e2dc4685c30a2edf4c3ce
+    m_Address: Assets/Externals/Pixel Monster Pack/64x64 monsters/Bounty_002.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 551cb54b2be67ba479d96244192ce9f2
+    m_Address: Assets/Externals/Pixel Monster Pack/64x64 monsters/Enemy_006.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
@@ -41,8 +47,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 68f6070cccedf0645a1c69d2405df3c5
-    m_Address: Assets/Sprites/PNG/Enemy_005.png
+  - m_GUID: 6ed1e2b8ed21d1f4bb26a2be4662fb84
+    m_Address: Assets/Externals/Pixel Monster Pack/64x64 monsters/Bounty_001.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75dcab0e768764b4e8208cbdcd504098
+    m_Address: Assets/Externals/Pixel Monster Pack/64x64 monsters/Bounty_005.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
@@ -53,14 +65,38 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f79f1523e40c5e4ca39009bd1678bb0
+    m_Address: Assets/Externals/Pixel Monster Pack/64x64 monsters/Enemy_005.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90091714e5c4fbe4f8cec8aa7da7869b
+    m_Address: Assets/Externals/Pixel Monster Pack/64x64 monsters/Enemy_004.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 965bd1a490538104f8b9adf54c9abd19
+    m_Address: Assets/Externals/Pixel Monster Pack/64x64 monsters/Bounty_006.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4ec39b1a4fcbee4daa01335aec8ef31
+    m_Address: Assets/Externals/Pixel Monster Pack/64x64 monsters/Enemy_001.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a64ccb5f9f38a97419ada401218119b5
     m_Address: Assets/Externals/Addin's Weapon Icons- RPG Icon Pack/Individual Sprites/64x64/Tower_002.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bc39d439ee5dc2c44a2c0b4bd881b65c
-    m_Address: Assets/Sprites/PNG/Enemy_001.png
+  - m_GUID: b46b12ff290649c4aa428bce9c66cfbe
+    m_Address: Assets/Externals/Pixel Monster Pack/64x64 monsters/Bounty_004.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
@@ -71,14 +107,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: daeb8dea7f8fcca4597fd2950571bf69
-    m_Address: Assets/Sprites/PNG/Enemy_003.png
+  - m_GUID: d280dad0830093142b2013dcfee178a7
+    m_Address: Assets/Externals/Pixel Monster Pack/64x64 monsters/Bounty_003.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e9b6e34148732404ab5864aea4e7f24d
-    m_Address: Assets/Sprites/PNG/Enemy_004.png
+  - m_GUID: d5353d44d082e9048bf757667d3cecab
+    m_Address: Assets/Externals/Pixel Monster Pack/64x64 monsters/Enemy_002.png
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
