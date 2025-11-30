@@ -14,6 +14,13 @@ public class TileController : MonoBehaviour
     [Header("타일 타입 설정")]
     public TileType tileType;
 
+    [Header("타일별 스프라이트")]
+    [SerializeField] private Sprite normalSprite;
+    [SerializeField] private Sprite repairSprite;
+    [SerializeField] private Sprite buffSprite;
+
+    [SerializeField] private SpriteRenderer sprite;
+
     [Header("설치 여부")]
     public bool hasTower = false;
 
@@ -28,6 +35,34 @@ public class TileController : MonoBehaviour
             return true;
         }
     }
+    private void Awake()
+    {
+        if (sprite == null)
+            sprite = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        UpdateSprite();
+    }
+
+    private void UpdateSprite()
+    {
+        switch (tileType)
+        {
+            case TileType.Normal:
+                sprite.sprite = normalSprite;
+                break;
+
+            case TileType.Repair:
+                sprite.sprite = repairSprite;
+                break;
+
+            case TileType.Buff:
+                sprite.sprite = buffSprite;
+                break;
+        }
+    }
 
     public float GetBuffMult()
     {
@@ -40,7 +75,7 @@ public class TileController : MonoBehaviour
         {
             tileType = TileType.Normal;
             Debug.Log("타일 타입 -> Normal");
-            //TODO : 스프라이트 변경
+            UpdateSprite();
         }
     }
 

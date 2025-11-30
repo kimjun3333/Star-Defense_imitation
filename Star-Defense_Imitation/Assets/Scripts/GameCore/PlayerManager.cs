@@ -7,6 +7,9 @@ public class PlayerManager : Singleton<PlayerManager>, IInitializable
 {
     private Dictionary<ResourceType, int> resources = new();
 
+    public int summonCost = 30;
+    public int repairCost = 20;
+
     public async Task Init()
     {
         resources[ResourceType.Gold] = 100;

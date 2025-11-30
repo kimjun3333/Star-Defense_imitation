@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -3399308869334063095}
   - component: {fileID: 2353607397952729775}
   m_Layer: 0
-  m_Name: Normal_Block
+  m_Name: NormalBlock_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,6 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileType: 0
+  normalSprite: {fileID: 21300000, guid: b1e3c14c5ef41334bb8f2ffff80c25e6, type: 3}
+  repairSprite: {fileID: 21300000, guid: 2ef2992ab46d1e742939122655d273a0, type: 3}
+  buffSprite: {fileID: 21300000, guid: 49a94de96e67c3f4fb329762a94f7ede, type: 3}
+  sprite: {fileID: 8466902063929072477}
   hasTower: 0
 --- !u!61 &2353607397952729775
 BoxCollider2D:
