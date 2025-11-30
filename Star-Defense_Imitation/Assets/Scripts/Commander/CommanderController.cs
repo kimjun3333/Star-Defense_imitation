@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CommanderController : MonoBehaviour
+public class CommanderController : Singleton<CommanderController>
 {
     [SerializeField] private CommanderSO so;
     [SerializeField] private SpriteRenderer spriteRenderer;

@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour, IPoolable
     private int waypointIndex = 0;
 
     private CommanderController commander;
+
     [SerializeField] private float attackRange = 0.5f;
     private float currentCooldown = 0f;
 
@@ -26,7 +27,7 @@ public class EnemyController : MonoBehaviour, IPoolable
 
         EnemyManager.Instance.Register(this);
 
-        commander = FindObjectOfType<CommanderController>();
+        commander = CommanderController.Instance;
 
         currentCooldown = 0f;
     }
@@ -81,7 +82,6 @@ public class EnemyController : MonoBehaviour, IPoolable
         }
         else
         {
-            // ▶ 이동 모드
             Move();
         }
     }
