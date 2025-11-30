@@ -7,6 +7,7 @@ public enum EventType
 {
     ResourceChanged,
     WaveStarted,
+    WaveEnded,
     EnemyDied,
 }
 public class EventManager : Singleton<EventManager>

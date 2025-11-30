@@ -108,7 +108,7 @@ public class StageManager : Singleton<StageManager>, IInitializable
         yield return new WaitUntil(() => EnemyManager.Instance.IsAllEnemyDead());
 
         isWaveRunning = false;
-    }
 
-  
+        EventManager.Instance.Trigger(EventType.WaveEnded, null);
+    }
 }
