@@ -35,8 +35,8 @@ public class ResourcesUI : UIBase
         var data = (ResourceChangedPayload)payload;
 
         if(data.type == ResourceType.Gold)
-            goldText.text = data.value.ToString();
+            goldText.text = $"G : {data.value.ToString()}";
         if(data.type == ResourceType.Mineral)
-            mineralText.text = data.value.ToString();
+            mineralText.text = $"M : {data.value.ToString()}";
     }
 }
