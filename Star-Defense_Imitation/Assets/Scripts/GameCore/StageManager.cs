@@ -110,5 +110,10 @@ public class StageManager : Singleton<StageManager>, IInitializable
         isWaveRunning = false;
 
         EventManager.Instance.Trigger(EventType.WaveEnded, null);
+
+        if (currentWaveIndex >= currentStage.WaveIDs.Count)
+        {
+            GameManager.Instance.Victory();
+        }
     }
 }

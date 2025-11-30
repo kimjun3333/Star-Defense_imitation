@@ -89,7 +89,7 @@ public class CommanderController : Singleton<CommanderController>
 
     private void Die()
     {
-        Debug.Log("게임 오버");
+        GameManager.Instance.GameOver();
     }
 
     public bool IsDead()
