@@ -76,6 +76,11 @@ public class StageManager : Singleton<StageManager>, IInitializable
             return;
         }
 
+        EventManager.Instance.Trigger(
+            EventType.WaveStarted,
+            new WaveStartedPayload(currentWaveIndex + 1, currentStage.WaveIDs.Count)
+            );
+
         StartCoroutine(RunWave(wave));
         currentWaveIndex++;
     }
