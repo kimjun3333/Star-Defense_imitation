@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff69f1f6af540d94ca658c75e73e8100, type: 3}
-  m_Name: "C_001_\uC9C0\uD718\uAD001"
+  m_Script: {fileID: 11500000, guid: 6e1beed98931f2741a5a1e0c7f03682a, type: 3}
+  m_Name: E_005_Enemy5
   m_EditorClassIdentifier: 
-  ID: C_001
-  Name: "\uC9C0\uD718\uAD001"
-  SpriteID: Tower_001
+  ID: E_005
+  Name: Enemy5
+  SpriteID: Enemy_005
   Sprite: {fileID: 0}
-  Health: 1000
-  Dmg: 30
-  Range: 3
-  AtkSpeed: 1.5
-  SkillID: 
-  ProjectileSpriteID: Tower_005
-  ProjectileSprite: {fileID: 0}
+  Health: 100
+  Speed: 1
+  Dmg: 50
+  AtkSpeed: 1.8
+  UnitType: 0
+  RewardType: 0
+  Reward: 10

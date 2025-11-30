@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58fa67abcfbffc7439c292b62cf05899, type: 3}
-  m_Name: "Wave_004_\uC6E8\uC774\uBE0C4"
+  m_Name: Wave_001_Wave1
   m_EditorClassIdentifier: 
-  ID: Wave_004
-  Name: "\uC6E8\uC774\uBE0C4"
+  ID: Wave_001
+  Name: Wave1
   SpriteID: 
   Sprite: {fileID: 0}
   Enemies:
-  - EnemyID: E_004
+  - EnemyID: E_001
     Count: 20

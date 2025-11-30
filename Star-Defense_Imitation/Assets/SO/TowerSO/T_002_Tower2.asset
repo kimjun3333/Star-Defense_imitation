@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8b4b7ede8f618b44b51ad0deea7883e, type: 3}
-  m_Name: "T_003_\uC77C\uBC18"
+  m_Name: T_002_Tower2
   m_EditorClassIdentifier: 
-  ID: T_003
-  Name: "\uC77C\uBC18"
-  SpriteID: Tower_003
+  ID: T_002
+  Name: Tower2
+  SpriteID: Tower_002
   Sprite: {fileID: 0}
-  Dmg: 3
-  Range: 3
-  AtkSpeed: 3
+  Dmg: 2
+  Range: 2
+  AtkSpeed: 2
   AttackType: 1
   Rarity: 2
-  TargetType: 2
-  Tribe: 2
+  TargetType: 1
+  Tribe: 1
   SkillID: 
   ProjectileSpriteID: Tower_005
   ProjectileSprite: {fileID: 21300000, guid: fad0ddd6e6bbc62418410a003f9ffdf3, type: 3}

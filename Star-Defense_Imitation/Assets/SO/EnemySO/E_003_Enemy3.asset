@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e1beed98931f2741a5a1e0c7f03682a, type: 3}
-  m_Name: "E_002_\uACF5\uC911\uC801"
+  m_Name: E_003_Enemy3
   m_EditorClassIdentifier: 
-  ID: E_002
-  Name: "\uACF5\uC911\uC801"
-  SpriteID: Enemy_002
+  ID: E_003
+  Name: Enemy3
+  SpriteID: Enemy_003
   Sprite: {fileID: 0}
-  Health: 50
-  Speed: 0.5
-  Dmg: 20
-  AtkSpeed: 1.2
-  UnitType: 1
+  Health: 100
+  Speed: 1
+  Dmg: 30
+  AtkSpeed: 1.4
+  UnitType: 0
   RewardType: 0
   Reward: 10

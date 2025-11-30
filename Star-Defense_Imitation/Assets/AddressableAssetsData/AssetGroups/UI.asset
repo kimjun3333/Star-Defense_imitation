@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 5120e0a3175502347b956c490fd9c8cb
   m_SerializeEntries:
+  - m_GUID: 00117760817327149ba4932a24e8254b
+    m_Address: Assets/Prefab/UI/GameStateUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39ab0de944c5e5d4387f7144c301726b
     m_Address: Assets/Prefab/UI/InfoUI.prefab
     m_ReadOnly: 0

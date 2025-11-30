@@ -40,6 +40,8 @@ public class UIBase : MonoBehaviour
 
         gameObject.SetActive(true);
 
+        UIManager.Instance.RegisterActiveUI(this);
+
         OnOpen();
     }
 
@@ -49,6 +51,9 @@ public class UIBase : MonoBehaviour
     public virtual void Close()
     {
         gameObject.SetActive(false);
+
+        UIManager.Instance.UnregisterActiveUI(this);
+
         OnClose();
     }
 

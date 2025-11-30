@@ -53,36 +53,6 @@ public class UIManager : Singleton<UIManager>, IInitializable
         await Task.CompletedTask;
     }
 
-    public T Open<T>(string id = null) where T : UIBase
-    {
-        string key = id ?? typeof(T).Name;
-
-        if (!allUI.TryGetValue(key, out var ui))
-        {
-            Debug.LogError($"UIManager: {key} UI가 Init에서 생성되지 않음");
-            return null;
-        }
-
-        if (!activeUI.ContainsKey(key))
-        {
-            ui.Open();
-            activeUI[key] = ui;
-        }
-
-        return (T)ui;
-    }
-
-    public void Close<T>(string id = null) where T : UIBase
-    {
-        string key = id ?? typeof(T).Name;
-
-        if (activeUI.TryGetValue(key, out var ui))
-        {
-            ui.Close();
-            activeUI.Remove(key);
-        }
-    }
-
     private Transform CreateLayerRoot(LayerType layerType, Transform parent)
     {
         GameObject root = new($"{layerType}Canvas");
@@ -109,5 +79,31 @@ public class UIManager : Singleton<UIManager>, IInitializable
         rt.offsetMax = Vector2.one;
 
         return safeArea.transform;
+    }
+
+    public void RegisterActiveUI(UIBase ui)
+    {
+        string key = ui.gameObject.name;
+
+        if (!activeUI.ContainsKey(key))
+            activeUI.Add(key, ui);
+    }
+
+    public void UnregisterActiveUI(UIBase ui)
+    {
+        string key = ui.gameObject.name;
+
+        if (activeUI.ContainsKey(key))
+            activeUI.Remove(key);
+    }
+
+    public void CloseAllUI()
+    {
+        var list = new List<UIBase>(activeUI.Values);
+
+        foreach (var ui in list)
+            ui.Close();
+
+        activeUI.Clear();
     }
 }

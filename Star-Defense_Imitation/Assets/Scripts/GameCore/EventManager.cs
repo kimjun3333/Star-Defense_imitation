@@ -12,6 +12,8 @@ public enum EventType
     TileClicked,
     TowerClicked,
     CommanderClicked,
+    GameWin,
+    GameOver,
 }
 public class EventManager : Singleton<EventManager>
 {

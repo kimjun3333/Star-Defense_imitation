@@ -23,14 +23,6 @@ public class StageManager : Singleton<StageManager>, IInitializable
 
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            StartNextWave();
-        }
-    }
-
     public void LoadStage(string stageID)
     {
         currentStage = DataManager.Instance.GetData<StageSO>(stageID);

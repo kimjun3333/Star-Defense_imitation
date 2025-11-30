@@ -9,13 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58fa67abcfbffc7439c292b62cf05899, type: 3}
-  m_Name: "Wave_005_\uC6E8\uC774\uBE0C5"
+  m_Script: {fileID: 11500000, guid: 6e1beed98931f2741a5a1e0c7f03682a, type: 3}
+  m_Name: E_001_Enemy1
   m_EditorClassIdentifier: 
-  ID: Wave_005
-  Name: "\uC6E8\uC774\uBE0C5"
-  SpriteID: 
+  ID: E_001
+  Name: Enemy1
+  SpriteID: Enemy_001
   Sprite: {fileID: 0}
-  Enemies:
-  - EnemyID: E_005
-    Count: 20
+  Health: 10
+  Speed: 1
+  Dmg: 10
+  AtkSpeed: 1
+  UnitType: 0
+  RewardType: 0
+  Reward: 10
