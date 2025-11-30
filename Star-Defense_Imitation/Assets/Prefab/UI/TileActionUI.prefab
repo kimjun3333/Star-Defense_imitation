@@ -55,6 +55,8 @@ MonoBehaviour:
   background: {fileID: 2815984319137298458}
   summonPanel: {fileID: 7021401766135734447}
   repairPanel: {fileID: 3925647779864229672}
+  summonCostText: {fileID: 5135124959215155007}
+  repairCostText: {fileID: 1410154308795354352}
 --- !u!1 &2815984319137298458
 GameObject:
   m_ObjectHideFlags: 0

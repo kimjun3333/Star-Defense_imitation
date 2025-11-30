@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,6 +10,9 @@ public class TileActionUI : UIBase
     [SerializeField] private GameObject background;
     [SerializeField] private GameObject summonPanel;
     [SerializeField] private GameObject repairPanel;
+
+    [SerializeField] private TextMeshProUGUI summonCostText;
+    [SerializeField] private TextMeshProUGUI repairCostText;
 
     private TileController currentTile;
 
@@ -71,6 +75,9 @@ public class TileActionUI : UIBase
             repairPanel.SetActive(false);
         }
 
+        summonCostText.text = $"{PlayerManager.Instance.summonCost.ToString()} G";
+        repairCostText.text = $"{PlayerManager.Instance.repairCost.ToString()} M";
+
         Open();
     }
 
@@ -92,6 +99,14 @@ public class TileActionUI : UIBase
     {
         if (currentTile == null) return;
 
+        int cost = PlayerManager.Instance.summonCost;
+
+        if (!PlayerManager.Instance.UseResource(ResourceType.Gold, cost))
+        {
+            Debug.Log("골드 부족");
+            return;
+        }
+
         currentTile.TryPlaceRandomTower();
         Close();
     }
@@ -99,6 +114,14 @@ public class TileActionUI : UIBase
     public void OnClickRepair()
     {
         if (currentTile == null) return;
+
+        int cost = PlayerManager.Instance.repairCost;
+
+        if (!PlayerManager.Instance.UseResource(ResourceType.Mineral, cost))
+        {
+            Debug.Log("미네랄 부족");
+            return;
+        }
 
         currentTile.Repair();
         Close();
